@@ -2,30 +2,6 @@
   <div class="leading-normal tracking-normal text-white gradient-hero w-full bg-top bg-contain">
     <LayoutNav />
 
-    <div data-aos="fade-up" class="pt-24">
-      <div
-        class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center"
-      >
-        <div
-          class="flex flex-col w-full pt-40  md:w-2/5 justify-center items-start text-center md:text-left"
-        >
-          <p class="uppercase tracking-loose w-full">Club de badminton à Augny</p>
-          <h1 class="my-4 text-5xl font-bold leading-tight">
-            Bienvenue au CSJBAD d'Augny !
-          </h1>
-          <p class="leading-normal text-2xl mb-8">
-            Jeunes et adultes, compétiteurs et loisirs,
-            le BVA accompagne tous les joueurs de badminton à prendre du plaisir sur et en dehors des terrains
-            dans la joie et la bonne humeur.
-          </p>
-          <button
-            class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
-          >
-            + d'infos
-          </button>
-        </div>
-      </div>
-    </div>
     <div class="relative -mt-12 lg:-mt-24">
       <svg
         viewBox="0 0 1428 174"
@@ -73,32 +49,38 @@
         >
           Présentation
         </h2>
+        <div data-aos="fade-up" class="w-full mb-4">
+          <div
+            class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"
+          ></div>
+        </div>
         <div data-aos="fade-up-right" class="flex flex-wrap">
-          <div class="w-full lg:w-2/3 p-1">
-            <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3 text-center lg:text-left">
+          <div class="w-full sm:w-2/3 p-1">
+            <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
               Licence pour la rentrée 2023-2024 !
             </h3>
             <p class="text-gray-600 mb-8">
-              COMMENT ADHERER AU CSJBAD POUR LA SAISON 2023 – 2024?<br/>
-              Vous trouverez les créneaux et offres tarifaires proposés, pour les jeunes et pour les adultes, dans le bandeau ci-dessus.<br/>
-              La nouvelle saison démarre pour les adultes lundi 4 septembre et pour les jeunes lundi 11 septembre<br/>
-              1/ vous étiez déjà licencié la saison passée :<br/>
-              Je renouvelle via MyFFBAD.<br/>
-              2/ nouvelle adhésion : je complète le formulaire en ligne ICI.<br/>
-              <br/>
-              IMPORTANT :<br/>
-              <br/>
-              – les nouveaux « adultes » doivent joindre au moment de l’adhésion le certificat médical (Formulaire Ici) à imprimer, les jeunes et les renouvellements complèteront le questionnaire de santé en ligne.<br/>
-              – une fois le dossier validé (vous recevez un message sur la boite mail que vous avez désignée lors de votre adhésion), c’est à ce moment que vous effectuez le règlement (virement de préférence (RIB Ici) ou chèque ou CB (au gymnase les lundis et mercredi de 19H30 à 20H30, du 14 au 23 août et à compter du 4 septembre)<br/>
-              – vous recevez ensuite un mail qui vous informe que vous êtes licencié et qui vous précisera que<br/>
-              votre licence sera valable du 1 er septembre 23 au 31 août 24 et sera téléchargeable à compter du 1 er sept. via MyFFBAD.<br/>
-              – les justificatifs PASS’SPORT doivent être transmis par mail à Maryse.Blondel@Bhbc.Fr au moment du<br/>
-              règlement.<br/>
+              COMMENT ADHERER AU BHBC POUR LA SAISON 2023 – 2024?
+              Vous trouverez les créneaux et offres tarifaires proposés, pour les jeunes et pour les adultes, dans le
+              bandeau ci-dessus.
+              La nouvelle saison démarre pour les adultes lundi 4 septembre et pour les jeunes lundi 11 septembre
+              1/ vous étiez déjà licencié la saison passée :
+              Je renouvelle via MyFFBAD.
+              2/ nouvelle adhésion : je complète le formulaire en ligne ICI.
+
+              IMPORTANT :
+
+              – les nouveaux « adultes » doivent joindre au moment de l’adhésion le certificat médical (Formulaire Ici) à imprimer, les jeunes et les renouvellements complèteront le questionnaire de santé en ligne.
+              – une fois le dossier validé (vous recevez un message sur la boite mail que vous avez désignée lors de votre adhésion), c’est à ce moment que vous effectuez le règlement (virement de préférence (RIB Ici) ou chèque ou CB (au gymnase les lundis et mercredi de 19H30 à 20H30, du 14 au 23 août et à compter du 4 septembre)
+              – vous recevez ensuite un mail qui vous informe que vous êtes licencié et qui vous précisera que
+              votre licence sera valable du 1 er septembre 23 au 31 août 24 et sera téléchargeable à compter du 1 er sept. via MyFFBAD.
+              – les justificatifs PASS’SPORT doivent être transmis par mail à Maryse.Blondel@Bhbc.Fr au moment du
+              règlement.
               <br />
             </p>
           </div>
-          <div class="p-1 hidden lg:block w-1/3">
-            <img class="h-1/2 mx-auto" src="../assets/imgs/badminton.png" />
+          <div class="w-full sm:w-1/3 p-1 content-center">
+            <img class="h-1/2" src="../assets/imgs/badminton.png" />
           </div>
         </div>
         <div
@@ -106,7 +88,7 @@
           class="flex flex-wrap flex-col-reverse sm:flex-row"
         >
           <div class="w-full sm:w-1/2 p-6 mt-6">
-            <img class="mx-auto" src="../assets/imgs/gymnase.jpeg" />
+
           </div>
           <div class="w-full sm:w-1/2 p-6 mt-6">
             <div class="align-middle">
@@ -114,15 +96,16 @@
                 Le gymnase d'Augny
               </h3>
               <p class="text-gray-600 mb-8">
-                C'est un espace dédié aux amateurs de badminton: notre gymnase moderne et spacieux est l'endroit idéal. <br/>
-                Avec ses installations bien entretenues et ses équipements de haute qualité, vous pouvez profiter pleinement.<br/>
-                Les vestiaires et les espaces de détente sont conçus pour votre confort, vous permettant de vous préparer et de vous détendre avant et après vos séances de jeu.<br/>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+                at ipsum eu nunc commodo posuere et sit amet ligula.
+                <br />
+                <br />
+                Images from:
+
+                <a class="text-pink-500 underline" href="https://undraw.co/"
+                  >undraw.co</a
+                >
               </p>
-              <a href="geo:124.028582,-29.201930"
-                class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
-              >
-                S'y rendre
-              </a>
             </div>
           </div>
         </div>
@@ -157,9 +140,8 @@
               <div class="w-full font-bold text-xl text-gray-800 px-6">
                 IC Journée 1
               </div>
-              <p class="text-gray-600 text-base px-6 mb-5">
-                D1: Jury<br/>
-                D2: Ars-Sur-Mosele
+              <p class="text-gray-800 text-base px-6 mb-5">
+
               </p>
             </a>
           </div>
@@ -212,19 +194,16 @@
       >
         Nous contacter ?
       </h2>
-      <div class="w-full mb-4 flex justify-between">
-        <button
-          class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
-        >
-          via Messenger
-        </button>
-        <button
-          class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
-        >
-          par Mail
-        </button>
+      <div class="w-full mb-4">
+        <div
+          class="h-1 mx-auto bg-white w-1/6 opacity-25 my-0 py-0 rounded-t"
+        ></div>
       </div>
-
+      <button
+        class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
+      >
+        via Messenger
+      </button>
     </section>
     <LayoutFooter />
   </div>
