@@ -73,7 +73,7 @@
         >
           Présentation
         </h2>
-        <div data-aos="fade-up-right" class="flex flex-wrap">
+        <div data-aos="fade-up-right" class="flex flex-wrap items-center justify-items-center">
           <div class="w-full lg:w-2/3 p-1">
             <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3 text-center lg:text-left">
               Licence pour la rentrée 2023-2024 !

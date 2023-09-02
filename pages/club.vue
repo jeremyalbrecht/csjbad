@@ -47,7 +47,7 @@
           data-aos="fade-up"
           class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800"
         >
-          Présentation
+          Le Club
         </h2>
         <div data-aos="fade-up" class="w-full mb-4">
           <div
@@ -57,93 +57,15 @@
         <div data-aos="fade-up-right" class="flex flex-wrap">
           <div class="w-full sm:w-2/3 p-1">
             <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
-              Licence pour la rentrée 2023-2024 !
+              Histoire
             </h3>
             <p class="text-gray-600 mb-8">
-              COMMENT ADHERER AU BHBC POUR LA SAISON 2023 – 2024?
-              Vous trouverez les créneaux et offres tarifaires proposés, pour les jeunes et pour les adultes, dans le
-              bandeau ci-dessus.
-              La nouvelle saison démarre pour les adultes lundi 4 septembre et pour les jeunes lundi 11 septembre
-              1/ vous étiez déjà licencié la saison passée :
-              Je renouvelle via MyFFBAD.
-              2/ nouvelle adhésion : je complète le formulaire en ligne ICI.
-
-              IMPORTANT :
-
-              – les nouveaux « adultes » doivent joindre au moment de l’adhésion le certificat médical (Formulaire Ici) à imprimer, les jeunes et les renouvellements complèteront le questionnaire de santé en ligne.
-              – une fois le dossier validé (vous recevez un message sur la boite mail que vous avez désignée lors de votre adhésion), c’est à ce moment que vous effectuez le règlement (virement de préférence (RIB Ici) ou chèque ou CB (au gymnase les lundis et mercredi de 19H30 à 20H30, du 14 au 23 août et à compter du 4 septembre)
-              – vous recevez ensuite un mail qui vous informe que vous êtes licencié et qui vous précisera que
-              votre licence sera valable du 1 er septembre 23 au 31 août 24 et sera téléchargeable à compter du 1 er sept. via MyFFBAD.
-              – les justificatifs PASS’SPORT doivent être transmis par mail à Maryse.Blondel@Bhbc.Fr au moment du
-              règlement.
-              <br />
+              Le Metz Ban Saint Martin Badminton – MBSMB – est un club de badminton fondé en septembre 2021. Ce club majeur du Grand Est est issu de la fusion des clubs de la ville de Ban Saint Martin, le Metz Saint Quentin Badminton (MSQB) et de la ville de Metz, le Metz Badminton (MB).<br/>
+              Notre nouveau club regroupe plus de 300 joueurs et devient ainsi le premier club de Moselle. Nous avons engagé 9 équipes d’Interclubs cette saison, à tous les niveaux, de Nationale 2 à Départementale 3.<br/>
+              Le MBSMB est un club de badminton généraliste, permettant une pratique loisirs et de compétition, où tout le monde (jeunes et adultes) peut s’adonner à cette activité selon ses envies, 7 jours sur 7, sur de nombreux créneaux (4 gymnases) et à moindre coût.<br/>
+              Ce club est affilié à la FFBad (Fédération Française de Badminton) et est inscrit au registre Jeunesse et Sports.<br/>
+              Pour plus d’infos sur les 2 clubs historiques qui ont donné naissance au MBSMB, rendez-vous sur:<br/>
             </p>
-          </div>
-          <div class="w-full sm:w-1/3 p-1 content-center">
-            <img class="h-1/2" src="../assets/imgs/badminton.png" />
-          </div>
-        </div>
-        <div
-          data-aos="fade-up-left"
-          class="flex flex-wrap flex-col-reverse sm:flex-row"
-        >
-          <div class="w-full sm:w-1/2 p-6 mt-6">
-
-          </div>
-          <div class="w-full sm:w-1/2 p-6 mt-6">
-            <div class="align-middle">
-              <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
-                Le gymnase d'Augny
-              </h3>
-              <p class="text-gray-600 mb-8">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                at ipsum eu nunc commodo posuere et sit amet ligula.
-                <br />
-                <br />
-                Images from:
-
-                <a class="text-pink-500 underline" href="https://undraw.co/"
-                  >undraw.co</a
-                >
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="customers" class="bg-white border-b py-8">
-      <div class="container mx-auto flex flex-wrap pt-4 pb-12">
-        <h2
-          data-aos="fade-up"
-          class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800"
-        >
-          Prochains évènements
-        </h2>
-        <div data-aos="fade-up" class="w-full mb-4">
-          <div
-            class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"
-          ></div>
-        </div>
-        <div
-          data-aos="zoom-in-down"
-          v-for="item in 3"
-          :key="item"
-          class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink"
-        >
-          <div
-            class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow"
-          >
-            <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-              <p class="w-full text-gray-600 text-xs md:text-sm px-6">
-                5 octobre
-              </p>
-              <div class="w-full font-bold text-xl text-gray-800 px-6">
-                IC Journée 1
-              </div>
-              <p class="text-gray-800 text-base px-6 mb-5">
-
-              </p>
-            </a>
           </div>
         </div>
       </div>

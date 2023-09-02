@@ -6,7 +6,7 @@
       <div class="pl-4 flex items-center ">
         <a
           class="text-white no-underline hover:no-underline"
-          href="#"
+          href="/"
         >
           <img class="h-auto" src="../../assets/imgs/logo.png" />
         </a>
@@ -35,30 +35,23 @@
         <ul class="list-reset lg:flex justify-end flex-1 items-center">
           <li class="mr-3">
             <a
-              class="inline-block uppercase py-2 px-4 hover:underline font-medium no-underline"
-              href="#"
-              >CSJBAD</a
-            >
-          </li>
-          <li class="mr-3">
-            <a
               class="inline-block uppercase no-underline hover:underline font-medium hover:text-gray-800 hover:text-underline py-2 px-4"
-              href="#about"
+              href="club"
               >Le Club</a
             >
           </li>
           <li class="mr-3">
             <a
               class="inline-block uppercase no-underline hover:underline font-medium hover:text-gray-800 hover:text-underline py-2 px-4"
-              href="#customers"
-              >Licences</a
+              href="adultes"
+              >Adultes</a
             >
           </li>
           <li class="mr-3">
             <a
               class="inline-block uppercase no-underline hover:underline font-medium hover:text-gray-800 hover:text-underline py-2 px-4"
               href="#pricing"
-              >Gymnase</a
+              >École de Badminton</a
             >
           </li>
           <li class="mr-3">
