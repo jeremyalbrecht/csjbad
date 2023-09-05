@@ -55,10 +55,10 @@
             >
           </li>
           <li class="mr-3">
-            <NuxtLink
+            <a
               class="inline-block uppercase no-underline hover:underline font-medium hover:text-gray-800 hover:text-underline py-2 px-4"
               href="/events"
-            >Vie du club</NuxtLink
+            >Vie du club</a
             >
           </li>
           <li class="mr-3">
