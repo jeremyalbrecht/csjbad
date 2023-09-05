@@ -55,19 +55,26 @@
             >
           </li>
           <li class="mr-3">
+            <NuxtLink
+              class="inline-block uppercase no-underline hover:underline font-medium hover:text-gray-800 hover:text-underline py-2 px-4"
+              href="/events"
+            >Vie du club</NuxtLink
+            >
+          </li>
+          <li class="mr-3">
             <a
               class="inline-block uppercase no-underline hover:underline font-medium hover:text-gray-800 hover:text-underline py-2 px-4"
-              href="/competitions"
-              >Compétitions</a
+              href="/doublejeu"
+            >Double Jeu d'Augny</a
             >
           </li>
         </ul>
-        <href
+        <a
           id="navAction"
           class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
         >
           Nous contacter
-        </href>
+        </a>
       </div>
     </div>
     <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
@@ -81,7 +88,6 @@ export default defineComponent({
   name: "layout-nav",
   data() {
     return {
-      scrollY: 0,
       mobileSidebar: false,
     };
   },

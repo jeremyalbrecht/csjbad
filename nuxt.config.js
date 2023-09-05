@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Landing page',
+    title: 'CSJBAD Augny Badminton - Club et école de badminton à côté de Metz licencié FFBad',
     htmlAttrs: {
       lang: 'en'
     },
