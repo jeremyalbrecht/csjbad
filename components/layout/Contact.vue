@@ -1,6 +1,7 @@
 <template>
 
   <section
+    id="contact"
     data-aos="zoom-in-up"
     class="container mx-auto text-center py-6 mb-12"
   >

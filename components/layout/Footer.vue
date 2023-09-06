@@ -27,6 +27,9 @@
         <div class="flex-1 justify-self-center">
             <img src="../../assets/imgs/logo-moselle.png" class="m-auto h-auto max-w-full" alt="Logo du département de la Moselle"/>
           </div>
+        <div class="flex-1 justify-self-center">
+          <img src="../../assets/imgs/jo-moselle.png" class="m-auto h-auto max-w-full" alt="Logo du département de la Moselle"/>
+        </div>
           <div class="flex-1 justify-self-center">
             <img src="../../assets/imgs/logo-augny.png" class="m-auto h-auto max-w-full" alt="Logo de la ville d'Augny"/>
           </div>

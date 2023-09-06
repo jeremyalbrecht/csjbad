@@ -68,13 +68,16 @@
             >Double Jeu d'Augny</a
             >
           </li>
+          <li class="mr-3 mt-3">
+            <a
+              href="#contact"
+              class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full mt-8 lg:mt-0 py-4 px-8 shadow focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
+            >
+              Nous contacter
+            </a>
+          </li>
         </ul>
-        <a
-          id="navAction"
-          class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
-        >
-          Nous contacter
-        </a>
+
       </div>
     </div>
     <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
@@ -108,10 +111,6 @@ export default defineComponent({
 a {
   font-weight: 600;
   font-style: normal !important;
-  color: white;
 }
 
-.navbar-active ul li a{
-  color: #170F4F;
-}
 </style>

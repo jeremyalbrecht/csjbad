@@ -27,7 +27,7 @@
             </p>
           </div>
           <div class="p-1 w-full lg:w-1/3">
-            <img class="h-1/2 mx-auto" src="../assets/imgs/affiche-double-jeu.jpeg" />
+            <img class="mx-auto h-auto max-w-full" src="../assets/imgs/affiche-double-jeu.jpeg" />
           </div>
         </div>
         <div
