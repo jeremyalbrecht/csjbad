@@ -210,8 +210,10 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { homePageQuery } from "../graphql/query";
 
 export default Vue.extend({
   name: "IndexPage",
+
 });
 </script>

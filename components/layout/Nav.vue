@@ -8,7 +8,7 @@
           class="text-white no-underline hover:no-underline"
           href="/"
         >
-          <img class="h-auto" src="../../assets/imgs/logo.png" />
+          <img class=" w-1/2" src="../../assets/imgs/logo.png" />
         </a>
       </div>
       <div class="block lg:hidden pr-4">
