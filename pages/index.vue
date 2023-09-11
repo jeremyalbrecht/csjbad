@@ -214,6 +214,10 @@ import { homePageQuery } from "../graphql/query";
 
 export default Vue.extend({
   name: "IndexPage",
-
+  data()  {
+    return {
+      events: {}
+    }
+  },
 });
 </script>
