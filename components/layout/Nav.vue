@@ -1,14 +1,14 @@
 <template>
   <nav id="header" class="fixed w-full z-30 top-0 text-white bg-white navbar-active">
     <div
-      class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2"
+      class="w-full container mx-auto flex flex-wrap items-center justify-center mt-0 py-2"
     >
-      <div class="pl-4 flex items-center ">
+      <div class="pl-4 flex justify-center ">
         <a
-          class="text-white no-underline hover:no-underline"
+          class="text-white no-underline hover:no-underline w-1/2"
           href="/"
         >
-          <img class=" w-1/2" src="../../assets/imgs/logo.png" />
+          <img class="" src="../../assets/imgs/logo.png" />
         </a>
       </div>
       <div class="block lg:hidden pr-4">
