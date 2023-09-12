@@ -210,5 +210,7 @@
 
 <script lang="ts">
 import { homePageQuery } from "../graphql/query";
+export default {
 
+}
 </script>
