@@ -1,9 +1,9 @@
-export default {
+export default defineNuxtConfig({
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
-
+  devServerHandlers: [],
   // Global page headers: https://go.nuxtjs.dev/config-head
-  head: {
+  meta: {
     title: 'CSJBAD Augny Badminton - Club et école de badminton à côté de Metz licencié FFBad',
     htmlAttrs: {
       lang: 'en'
@@ -24,34 +24,23 @@ export default {
     '~/assets/css/style.css'
   ],
 
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    { src: '~/plugins/aos.js', mode: 'client' }
-  ],
-
-  // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
-
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    // https://go.nuxtjs.dev/typescript
-    '@nuxt/typescript-build',
+  // Modules: https://go.nuxtjs.dev/config-modules
+  modules: [
     '@nuxtjs/tailwindcss'
   ],
 
-  // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-  ],
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint: process.env.BACKEND_URL || "http://localhost:1337/graphql",
+      }
+    }
+  },
 
-  // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    postcss: {
-      postcssOptions: {
-        plugins: {
-          tailwindcss: {},
-          autoprefixer: {},
-        },
-      },
-    },
+  },
+  env: {
+    strapiBaseUri: process.env.API_URL || "http://localhost:1337"
   }
-}
+
+})
