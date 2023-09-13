@@ -9,16 +9,16 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@vue/apollo-option": "^4.0.0-beta.9",
     "aos": "^2.3.4",
-    "@nuxtjs/apollo": "^4.0.1-rc.4",
     "graphql-tag": "^2.12.6",
     "nuxt": "^3.7.1",
     "vue": "^3.3.4",
-    "@vue/compat": "^3.3.4",
     "vue-router": "^4.2.4"
   },
   "devDependencies": {
     "@nuxt/types": "^2.17.1",
+    "@nuxtjs/apollo": "^5.0.0-alpha.6",
     "@nuxtjs/tailwindcss": "^6.8.0",
     "@types/aos": "^3.0.4",
     "@types/node": "^20.3.3",

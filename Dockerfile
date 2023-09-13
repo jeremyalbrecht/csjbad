@@ -6,7 +6,8 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-FROM nginx:1.25 as web
-COPY --from=build /app/dist /usr/share/nginx/html
+FROM node:20
+COPY --from=build /app/.output /app/.output
+ENV NITRO_PORT=80
 EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+CMD [ "node", ".output/server/index.mjs" ]

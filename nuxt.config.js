@@ -26,11 +26,12 @@ export default defineNuxtConfig({
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/apollo',
     '@nuxtjs/tailwindcss'
   ],
 
   apollo: {
-    clientConfigs: {
+    clients: {
       default: {
         httpEndpoint: process.env.BACKEND_URL || "http://localhost:1337/graphql",
       }
@@ -39,8 +40,5 @@ export default defineNuxtConfig({
 
   build: {
   },
-  env: {
-    strapiBaseUri: process.env.API_URL || "http://localhost:1337"
-  }
 
 })
