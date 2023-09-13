@@ -1,6 +1,7 @@
 export default defineNuxtConfig({
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
-  ssr: false,
+  ssr: true,
+  target: "static",
   devServerHandlers: [],
   // Global page headers: https://go.nuxtjs.dev/config-head
   meta: {

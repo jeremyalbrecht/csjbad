@@ -4,10 +4,9 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN npm run build
+RUN npm run generate
 
 FROM node:20
-COPY --from=build /app/.output /app/.output
-ENV NITRO_PORT=80
+COPY --from=build /app/.output/public /usr/share/nginx/html/
 EXPOSE 80
-CMD [ "node", ".output/server/index.mjs" ]
+CMD ["nginx", "-g", "daemon off;"]
