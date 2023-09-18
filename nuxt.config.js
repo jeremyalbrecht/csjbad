@@ -27,18 +27,18 @@ export default defineNuxtConfig({
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxtjs/apollo',
+    'nuxt-graphql-request',
     '@nuxtjs/tailwindcss'
   ],
 
-  apollo: {
+  graphql: {
     clients: {
       default: {
-        httpEndpoint: process.env.BACKEND_URL || "http://localhost:1337/graphql",
-      }
-    }
+        endpoint: process.env.BACKEND_URL || "http://localhost:1337/graphql",
+        options: {},
+      },
+    },
   },
-
   build: {
   },
 

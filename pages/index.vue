@@ -209,8 +209,21 @@
 </template>
 
 <script lang="ts">
-import { homePageQuery } from "../graphql/query";
-export default {
+import {homePageQuery} from "~/graphql/query";
 
-}
+export default {}
+
+</script>
+<script lang="ts" setup>
+import gql from "graphql-tag";
+import {useFetch} from "nuxt/app";
+
+const {data, pending, error, refresh} = await useFetch("http://localhost:1337/graphql", {
+  query: homePageQuery,
+  onResponse({request, response, options}) {
+    // Process the response data
+    console.log(response.)
+    localStorage.setItem('token', response._data.token)
+  }
+})
 </script>
