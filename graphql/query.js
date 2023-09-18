@@ -1,5 +1,4 @@
-import gql from 'graphql-tag';
-export const homePageQuery = gql`
+export const homePageQuery = `
 query HomePage {
     homePage {
         data {
