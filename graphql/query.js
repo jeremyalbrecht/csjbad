@@ -1,3 +1,33 @@
+export const sponsorQuery = `
+query sponsors {
+  sponsors(filters: {active: {eq: true}}) {
+          data {
+              id
+              attributes {
+                  logo {
+                      data {
+                          attributes {
+                              url
+                          }
+                      }
+                  }
+              }
+          }
+      }
+    }`
+
+export const contactQuery = `
+query contacts {
+  contacts(filters: {active: {eq: true}}) {
+  data {
+    attributes {
+      title
+      action
+    }
+  }
+}
+}`
+
 export const homePageQuery = `
 query HomePage {
     homePage {
@@ -29,28 +59,6 @@ query HomePage {
                         }
                     }
                 }
-            }
-        }
-    }
-    sponsors(filters: {active: {eq: true}}) {
-        data {
-            id
-            attributes {
-                logo {
-                    data {
-                        attributes {
-                            url
-                        }
-                    }
-                }
-            }
-        }
-    }
-    contacts(filters: {active: {eq: true}}) {
-        data {
-            attributes {
-                title
-                action
             }
         }
     }

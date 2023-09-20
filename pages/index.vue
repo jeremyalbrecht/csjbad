@@ -1,7 +1,6 @@
 <template>
   <div class="leading-normal tracking-normal text-white gradient-hero w-full bg-top bg-contain">
     <LayoutNav />
-
     <div data-aos="fade-up" class="pt-24">
       <div
         class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center"
@@ -9,14 +8,12 @@
         <div
           class="flex flex-col w-full pt-40  md:w-2/5 justify-center items-start text-center md:text-left"
         >
-          <p class="uppercase tracking-loose w-full">Club de badminton à Augny</p>
+          <p class="uppercase tracking-loose w-full">{{ homePageData.hero_small_title }}</p>
           <h1 class="my-4 text-5xl font-bold leading-tight">
-            Bienvenue au CSJBAD d'Augny !
+            {{ homePageData.hero_big_title }}
           </h1>
           <p class="leading-normal text-2xl mb-8">
-            Jeunes et adultes, compétiteurs et loisirs,
-            le BVA accompagne tous les joueurs de badminton à prendre du plaisir sur et en dehors des terrains
-            dans la joie et la bonne humeur.
+            {{ homePageData.hero_description }}
           </p>
           <button
             class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
@@ -73,62 +70,31 @@
         >
           Présentation
         </h2>
-        <div data-aos="fade-up-right" class="flex flex-wrap items-center justify-items-center">
-          <div class="w-full lg:w-2/3 p-1">
+        <div v-for="(article, index) in homePageData.articles"
+             :key="article"
+             :class="'flex mb-4 flex-wrap items-center justify-items-center ' + ((index % 2 == 1) ? 'flex-col-reverse sm:flex-row' : '')" :data-aos="'fade-up-' + ((index % 2 == 1) ? 'left' : 'right')">
+          <div v-if="article.image && index % 2 == 1" class="w-full sm:w-1/3 p-1">
+            <img :src="config.public.BACKEND_URL + article.image.data[0].attributes.url" class="h-1/2 mx-auto"/>
+          </div>
+          <div class="w-full lg:w-2/3 p-1 mb-5 sm:mb-0">
             <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3 text-center lg:text-left">
-              Licence pour la rentrée 2023-2024 !
+              {{ article.title }}
             </h3>
-            <p class="text-gray-600 mb-8">
-              COMMENT ADHERER AU CSJBAD POUR LA SAISON 2023 – 2024?<br/>
-              Vous trouverez les créneaux et offres tarifaires proposés, pour les jeunes et pour les adultes, dans le bandeau ci-dessus.<br/>
-              La nouvelle saison démarre pour les adultes lundi 4 septembre et pour les jeunes lundi 11 septembre<br/>
-              1/ vous étiez déjà licencié la saison passée :<br/>
-              Je renouvelle via MyFFBAD.<br/>
-              2/ nouvelle adhésion : je complète le formulaire en ligne ICI.<br/>
-              <br/>
-              IMPORTANT :<br/>
-              <br/>
-              – les nouveaux « adultes » doivent joindre au moment de l’adhésion le certificat médical (Formulaire Ici) à imprimer, les jeunes et les renouvellements complèteront le questionnaire de santé en ligne.<br/>
-              – une fois le dossier validé (vous recevez un message sur la boite mail que vous avez désignée lors de votre adhésion), c’est à ce moment que vous effectuez le règlement (virement de préférence (RIB Ici) ou chèque ou CB (au gymnase les lundis et mercredi de 19H30 à 20H30, du 14 au 23 août et à compter du 4 septembre)<br/>
-              – vous recevez ensuite un mail qui vous informe que vous êtes licencié et qui vous précisera que<br/>
-              votre licence sera valable du 1 er septembre 23 au 31 août 24 et sera téléchargeable à compter du 1 er sept. via MyFFBAD.<br/>
-              – les justificatifs PASS’SPORT doivent être transmis par mail à Maryse.Blondel@Bhbc.Fr au moment du<br/>
-              règlement.<br/>
-              <br />
-            </p>
-          </div>
-          <div class="p-1 hidden lg:block w-1/3">
-            <img class="h-1/2 mx-auto" src="../assets/imgs/badminton.png" />
-          </div>
-        </div>
-        <div
-          data-aos="fade-up-left"
-          class="flex flex-wrap flex-col-reverse sm:flex-row"
-        >
-          <div class="w-full sm:w-1/2 p-6 mt-6">
-            <img class="mx-auto" src="../assets/imgs/gymnase.jpeg" />
-          </div>
-          <div class="w-full sm:w-1/2 p-6 mt-6">
-            <div class="align-middle">
-              <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
-                Le gymnase d'Augny
-              </h3>
-              <p class="text-gray-600 mb-8">
-                C'est un espace dédié aux amateurs de badminton: notre gymnase moderne et spacieux est l'endroit idéal. <br/>
-                Avec ses installations bien entretenues et ses équipements de haute qualité, vous pouvez profiter pleinement.<br/>
-                Les vestiaires et les espaces de détente sont conçus pour votre confort, vous permettant de vous préparer et de vous détendre avant et après vos séances de jeu.<br/>
-              </p>
-              <a href="geo:124.028582,-29.201930"
-                class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
-              >
-                S'y rendre
-              </a>
+            <div class="text-gray-600 mb-8" v-html="$md(article.content)">
             </div>
+            <a v-if="article.button_title" :href="article.button_url"
+               class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
+            >
+              {{ article.button_title }}
+            </a>
+          </div>
+          <div v-if="article.image && index % 2 == 0" class="w-full sm:w-1/3 p-1">
+            <img :src="config.public.BACKEND_URL + article.image.data[0].attributes.url" class="h-1/2 mx-auto"/>
           </div>
         </div>
       </div>
     </section>
-    <section id="customers" class="bg-white border-b py-8">
+    <section id="events" class="bg-white border-b py-8">
       <div class="container mx-auto flex flex-wrap pt-4 pb-12">
         <h2
           data-aos="fade-up"
@@ -143,25 +109,23 @@
         </div>
         <div
           data-aos="zoom-in-down"
-          v-for="item in 3"
-          :key="item"
+          v-for="event in homePageData.events"
+          :key="event"
           class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink"
         >
           <div
             class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow"
           >
-            <a href="#" class="flex flex-wrap no-underline hover:no-underline">
+            <div class="flex flex-wrap no-underline hover:no-underline">
               <p class="w-full text-gray-600 text-xs md:text-sm px-6">
-                5 octobre
+                {{ dayjs(event.date).format("D MMMM") }}
               </p>
               <div class="w-full font-bold text-xl text-gray-800 px-6">
-                IC Journée 1
+                {{ event.title }}
               </div>
-              <p class="text-gray-600 text-base px-6 mb-5">
-                D1: Jury<br/>
-                D2: Ars-Sur-Mosele
-              </p>
-            </a>
+              <div class="text-gray-600 text-base px-6 mb-5" v-html="$md(event.content)">
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -209,15 +173,23 @@
 </template>
 
 <script lang="ts" setup>
-import { homePageQuery } from "~/graphql/query"
+import {homePageQuery} from "~/graphql/query"
+import {useRuntimeConfig} from "nuxt/app";
 
-const { data, error } = await useFetch("http://localhost:1337/graphql", {
-  query: homePageQuery,
+const config = useRuntimeConfig();
+const dayjs = useDayjs()
+const {$md} = useNuxtApp()
+
+const {data, error} = await useFetch(config.public.BACKEND_API_URL, {
+  body: {
+    query: homePageQuery,
+    variables: {}
+  },
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
 })
 
 if (error.value) throw createError(error.value)
 
-console.info(data.value)
+const homePageData = data.value.data.homePage.data.attributes
 </script>

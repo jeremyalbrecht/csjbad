@@ -24,20 +24,9 @@
             </li>
           </ul>
         </div>
-        <div class="flex-1 justify-self-center">
-            <img src="../../assets/imgs/logo-moselle.png" class="m-auto h-auto max-w-full" alt="Logo du département de la Moselle"/>
-          </div>
-        <div class="flex-1 justify-self-center">
-          <img src="../../assets/imgs/jo-moselle.png" class="m-auto h-auto max-w-full" alt="Logo du département de la Moselle"/>
-        </div>
-          <div class="flex-1 justify-self-center">
-            <img src="../../assets/imgs/logo-augny.png" class="m-auto h-auto max-w-full" alt="Logo de la ville d'Augny"/>
-          </div>
-          <div class="flex-1 justify-self-center">
-            <img src="../../assets/imgs/logo-ffbad.jpeg" class="m-auto h-auto max-w-full" alt="Logo de la fédération française de badminton"/>
-          </div>
-          <div class="flex-1 justify-self-center">
-            <img src="../../assets/imgs/logo-ministere.png" class="m-auto h-auto max-w-full" alt="Logo du ministère des sports"/>
+        <div v-for="sponsor in data.data.sponsors.data" class="flex-1 justify-self-center">
+          <img :src="config.public.BACKEND_URL + sponsor.attributes.logo.data.attributes.url"
+               alt="Logo du département de la Moselle" class="m-auto h-auto max-w-full"/>
           </div>
       </div>
 
@@ -46,9 +35,26 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import {defineComponent} from "vue";
+import {sponsorQuery} from "~/graphql/query"
+
 
 export default defineComponent({
+  setup() {
+    const config = useRuntimeConfig();
+    const {data, error} = useFetch(config.public.BACKEND_API_URL, {
+      body: {
+        query: sponsorQuery,
+        variables: {}
+      },
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+    })
+
+    if (error.value) throw createError(error.value)
+
+    return {config, data, error}
+  },
   name: "layout-footer",
 });
 </script>

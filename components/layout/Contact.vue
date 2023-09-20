@@ -11,15 +11,10 @@
       Nous contacter ?
     </h2>
     <div class="w-full mb-4 flex justify-around">
-      <a href="https://m.me/augnybadminton"
+      <a v-for="contact in data.data.contacts.data" :href="contact.attributes.action"
         class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
       >
-        via Messenger
-      </a>
-      <a href="mailto:csjbad.augny@gmail.com"
-        class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
-      >
-        par Mail
+        {{ contact.attributes.title }}
       </a>
     </div>
 
@@ -27,9 +22,26 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import {defineComponent} from "vue";
+import {contactQuery} from "~/graphql/query";
 
 export default defineComponent({
   name: "layout-contact",
+  setup() {
+    const config = useRuntimeConfig();
+    const {data, error} = useFetch(config.public.BACKEND_API_URL, {
+      body: {
+        query: contactQuery,
+        variables: {}
+      },
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+    })
+
+    if (error.value) throw createError(error.value)
+
+    return {config, data, error}
+  },
+
 });
 </script>

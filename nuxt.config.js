@@ -27,17 +27,22 @@ export default defineNuxtConfig({
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    'nuxt-graphql-request',
+    'dayjs-nuxt',
     '@nuxtjs/tailwindcss'
   ],
 
-  graphql: {
-    clients: {
-      default: {
-        endpoint: process.env.BACKEND_URL || "http://localhost:1337/graphql",
-        options: {},
-      },
-    },
+  dayjs: {
+    locales: ['fr'],
+    plugins: ['relativeTime', 'utc', 'timezone'],
+    defaultLocale: 'fr',
+    defaultTimezone: 'Europe/Paris',
+  },
+
+  runtimeConfig: {
+    public: {
+      BACKEND_API_URL: process.env.BACKEND_API_URL,
+      BACKEND_URL: process.env.BACKEND_URL
+    }
   },
   build: {
   },
