@@ -63,3 +63,55 @@ query HomePage {
         }
     }
 }`
+
+export const clubQuery = `
+query Club {
+  club {
+    data {
+      attributes {
+        articles {
+          title
+          content
+          image {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          button_url
+          button_title
+        }
+      }
+    }
+  }
+}`
+
+export const adultesQuery = `
+query Adulte {
+  adulte {
+    data {
+      attributes {
+        button_title
+        button_action
+        creneaux {
+          title
+          subtitle
+          day
+          color
+        }
+        tarifs
+        files {
+          data {
+            attributes {
+              name
+              ext
+              size
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+}`

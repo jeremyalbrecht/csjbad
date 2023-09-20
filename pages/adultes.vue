@@ -10,68 +10,21 @@
               Créneaux
             </h3>
             <div class="grid grid-cols-1 lg:grid-cols-4 lg:gap-4 flex items-start text-black">
-              <div class="mt-4 lg:mt-0">
-                <div>Lundi</div>
-                <div class="rounded-lg gradient hover p-6">
-                  <h5 class="mb-2 text-xl font-medium leading-tight text-neutral-50">
-                    Jeu Libre
-                  </h5>
-                  <p class="mb-4 text-base text-neutral-200 dark:text-neutral-200">
-                    19h - 22h
-                  </p>
+              <template v-for="day in dayOfWeek">
+                <div v-if="adultesData.creneaux.some(c => c.day == day)" class="mt-4 lg:mt-0">
+                  <div>{{ day }}</div>
+                  <div v-for="c in adultesData.creneaux.filter(c => c.day == day)"
+                       :class="'rounded-lg mb-4 hover p-6 ' + ((c.color == 'Gris') ? 'gradient-grey' : 'gradient')">
+                    <h5
+                      :class="'mb-2 text-xl font-medium leading-tight text-neutral-' + ((c.color == 'Gris') ? '800' : '50')">
+                      {{ c.title }}
+                    </h5>
+                    <p :class="'mb-4 text-base text-neutral-' + ((c.color == 'Gris') ? '600' : '200')">
+                      {{ c.subtitle }}
+                    </p>
+                  </div>
                 </div>
-              </div>
-
-              <div class="mt-4 lg:mt-0">
-                <div>Mercredi</div>
-                <div
-                  class="rounded-lg gradient-grey p-6">
-                  <h5
-                    class="mb-2 text-xl font-medium leading-tight text-neutral-800">
-                    Entraînement Jeune
-                  </h5>
-                  <p class="mb-4 text-base text-neutral-600">
-                    18h30 - 20h
-                  </p>
-                </div>
-                <div
-                  class="rounded-lg gradient-grey p-6 mt-4">
-                  <h5
-                    class="mb-2 text-xl font-medium leading-tight text-neutral-800">
-                    Entraînement Adulte
-                  </h5>
-                  <p class="mb-4 text-base text-neutral-600">
-                    20h - 21h30
-                  </p>
-                </div>
-              </div>
-              <div class="mt-4 lg:mt-0">
-                <div>Jeudi</div>
-                <div
-                class="rounded-lg gradient hover p-6">
-                <h5
-                  class="mb-2 text-xl font-medium leading-tight text-neutral-50">
-                  Jeu Libre
-                </h5>
-                <p class="mb-4 text-base text-neutral-200 dark:text-neutral-200">
-                  19h - 22h
-                </p>
-              </div>
-              </div>
-
-              <div class="mt-4 lg:mt-0">
-                <div>Dimanche</div>
-                <div
-                  class="rounded-lg gradient hover p-6">
-                  <h5
-                    class="mb-2 text-xl font-medium leading-tight text-neutral-50">
-                    Jeu Libre
-                  </h5>
-                  <p class="mb-4 text-base text-neutral-200 dark:text-neutral-200">
-                    10h - 12h (sur demande)
-                  </p>
-                </div>
-              </div>
+              </template>
             </div>
           </div>
         </div>
@@ -132,14 +85,14 @@
       </div>
     </section>
 
-    <section id="adherer" class="gradient border-b py-8">
+    <section v-if="adultesData.button_title" id="adherer" class="gradient border-b py-8">
       <div class="container mx-auto m-8 flex justify-center">
         <div data-aos="fade-up-left" class="flex flex-wrap">
       <a
-        id="navAction" href="https://adherer.myffbad.fr/csjbad57"
+        id="navAction" :href="adultesData.button_action"
         class="mx-auto lg:mx-0 hover:underline gradient-grey text-neutral-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
       >
-        Adhérer au club sur le site de la FFBad
+        {{ adultesData.button_title }}
       </a>
         </div>
       </div>
@@ -186,5 +139,24 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
+import {adultesQuery} from "~/graphql/query"
+import {useRuntimeConfig} from "nuxt/app";
+
+const config = useRuntimeConfig();
+const {$md} = useNuxtApp()
+const dayOfWeek = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"]
+
+const {data, error} = await useFetch(config.public.BACKEND_API_URL, {
+  body: {
+    query: adultesQuery,
+    variables: {}
+  },
+  method: 'POST',
+  headers: {'Content-Type': 'application/json'},
+})
+
+if (error.value) throw createError(error.value)
+
+const adultesData = data.value.data.adulte.data.attributes
 </script>

@@ -15,11 +15,7 @@
           <p class="leading-normal text-2xl mb-8">
             {{ homePageData.hero_description }}
           </p>
-          <button
-            class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
-          >
-            + d'infos
-          </button>
+
         </div>
       </div>
     </div>
@@ -73,7 +69,7 @@
         <div v-for="(article, index) in homePageData.articles"
              :key="article"
              :class="'flex mb-4 flex-wrap items-center justify-items-center ' + ((index % 2 == 1) ? 'flex-col-reverse sm:flex-row' : '')" :data-aos="'fade-up-' + ((index % 2 == 1) ? 'left' : 'right')">
-          <div v-if="article.image && index % 2 == 1" class="w-full sm:w-1/3 p-1">
+          <div v-if="article.image.data.length > 0 && index % 2 == 1" class="w-full sm:w-1/3 p-1">
             <img :src="config.public.BACKEND_URL + article.image.data[0].attributes.url" class="h-1/2 mx-auto"/>
           </div>
           <div class="w-full lg:w-2/3 p-1 mb-5 sm:mb-0">
@@ -88,7 +84,7 @@
               {{ article.button_title }}
             </a>
           </div>
-          <div v-if="article.image && index % 2 == 0" class="w-full sm:w-1/3 p-1">
+          <div v-if="article.image.data.length > 0 && index % 2 == 0" class="w-full sm:w-1/3 p-1">
             <img :src="config.public.BACKEND_URL + article.image.data[0].attributes.url" class="h-1/2 mx-auto"/>
           </div>
         </div>

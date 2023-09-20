@@ -54,18 +54,27 @@
             class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"
           ></div>
         </div>
-        <div data-aos="fade-up-right" class="flex flex-wrap">
-          <div class="w-full sm:w-2/3 p-1">
-            <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
-              Histoire
+        <div v-for="(article, index) in clubData.articles"
+             :key="article"
+             :class="'flex mb-4 flex-wrap items-center justify-items-center ' + ((index % 2 == 1) ? 'flex-col-reverse sm:flex-row' : '')"
+             :data-aos="'fade-up-' + ((index % 2 == 1) ? 'left' : 'right')">
+          <div v-if="article.image.data.length > 0 && index % 2 == 1" class="w-full sm:w-1/3 p-1">
+            <img :src="config.public.BACKEND_URL + article.image.data[0].attributes.url" class="h-1/2 mx-auto"/>
+          </div>
+          <div class="w-full lg:w-2/3 p-1 mb-5 sm:mb-0">
+            <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3 text-center lg:text-left">
+              {{ article.title }}
             </h3>
-            <p class="text-gray-600 mb-8">
-              Le Metz Ban Saint Martin Badminton – MBSMB – est un club de badminton fondé en septembre 2021. Ce club majeur du Grand Est est issu de la fusion des clubs de la ville de Ban Saint Martin, le Metz Saint Quentin Badminton (MSQB) et de la ville de Metz, le Metz Badminton (MB).<br/>
-              Notre nouveau club regroupe plus de 300 joueurs et devient ainsi le premier club de Moselle. Nous avons engagé 9 équipes d’Interclubs cette saison, à tous les niveaux, de Nationale 2 à Départementale 3.<br/>
-              Le MBSMB est un club de badminton généraliste, permettant une pratique loisirs et de compétition, où tout le monde (jeunes et adultes) peut s’adonner à cette activité selon ses envies, 7 jours sur 7, sur de nombreux créneaux (4 gymnases) et à moindre coût.<br/>
-              Ce club est affilié à la FFBad (Fédération Française de Badminton) et est inscrit au registre Jeunesse et Sports.<br/>
-              Pour plus d’infos sur les 2 clubs historiques qui ont donné naissance au MBSMB, rendez-vous sur:<br/>
-            </p>
+            <div class="text-gray-600 mb-8" v-html="$md(article.content)">
+            </div>
+            <a v-if="article.button_title" :href="article.button_url"
+               class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
+            >
+              {{ article.button_title }}
+            </a>
+          </div>
+          <div v-if="article.image.data.length > 0 && index % 2 == 0" class="w-full sm:w-1/3 p-1">
+            <img :src="config.public.BACKEND_URL + article.image.data[0].attributes.url" class="h-1/2 mx-auto"/>
           </div>
         </div>
       </div>
@@ -112,5 +121,23 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
+import {clubQuery} from "~/graphql/query"
+import {useRuntimeConfig} from "nuxt/app";
+
+const config = useRuntimeConfig();
+const {$md} = useNuxtApp()
+
+const {data, error} = await useFetch(config.public.BACKEND_API_URL, {
+  body: {
+    query: clubQuery,
+    variables: {}
+  },
+  method: 'POST',
+  headers: {'Content-Type': 'application/json'},
+})
+
+if (error.value) throw createError(error.value)
+
+const clubData = data.value.data.club.data.attributes
 </script>
