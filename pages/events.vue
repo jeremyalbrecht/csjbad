@@ -1,6 +1,6 @@
 <template>
   <div class="leading-normal tracking-normal text-white gradient-hero w-full bg-top bg-contain">
-    <LayoutNav />
+    <LayoutNav/>
 
     <section class="bg-white border-b py-8 pt-28">
       <div class="container mx-auto m-8">
@@ -11,27 +11,31 @@
           Vie du club
         </h2>
         <div data-aos="fade-up-right" class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div class="md:col-span-2 flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-64 md:rounded-none md:rounded-l-lg" src="../assets/imgs/paques.jpeg" alt="">
-            <div class="flex flex-col justify-between p-4 leading-normal">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Tournoi de Pâques</h5>
-              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Un tournoi de badminton amusant pour Pâques : joie et compétition au rendez-vous !</p>
+          <template v-for="(event, index) in eventsData.events" :key="event">
+            <div
+              :class="((((index)) % 4) >= 2 || index == 0 ? 'md:col-span-2 ' : '') + 'flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row'">
+              <img v-if="event.image.data"
+                   :alt="event.image.data.attributes.alternativeText"
+                   :src="config.public.BACKEND_URL + event.image.data.attributes.url" class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-64 md:rounded-none md:rounded-l-lg">
+              <div class="flex flex-col justify-between p-4 leading-normal">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ event.title }}</h5>
+                <div class="mb-3 font-normal text-gray-700 dark:text-gray-400" v-html="$md(event.content)"></div>
+              </div>
             </div>
-          </div>
-          <div class="flex flex-col items-center bg-white border gradient rounded-lg shadow md:flex-row md:max-w-xl border-gray-700 hover:bg-gray-700">
-            <img class="object-cover w-full hidden md:block h-96 md:h-auto md:w-64 rounded-full" src="../assets/imgs/fb-profile.jpeg" alt="">
-            <div class="flex flex-col justify-between p-4 leading-normal">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">Retrouvez nos événements sur Facebook</h5>
-              <p class="mb-3 font-normal text-gray-400">Nous publions régulièrement sur Facebook, venez nous suivre !</p>
-            </div>
-          </div>
-          <div class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-64 md:rounded-none md:rounded-l-lg" src="../assets/imgs/beaujolais.jpeg" alt="">
-            <div class="flex flex-col justify-between p-4 leading-normal">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Tournoi Beaujolais</h5>
-              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Un tournoi de badminton amusant pour Pâques : joie et compétition au rendez-vous !</p>
-            </div>
-          </div>
+            <a v-if="index % 8 == 0" href="https://www.facebook.com/augnybadminton/">
+              <div
+                class="flex flex-col items-center bg-white border gradient rounded-lg shadow md:flex-row md:max-w-xl border-gray-700 ">
+                <img alt=""
+                     class="object-cover w-full hidden md:block h-96 md:h-auto md:w-64 rounded-full" src="../assets/imgs/fb-profile.jpeg">
+                <div class="flex flex-col justify-between p-4 leading-normal">
+                  <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">Retrouvez nos événements sur
+                    Facebook</h5>
+                  <p class="mb-3 font-normal text-gray-400">Nous publions régulièrement sur Facebook, venez nous suivre
+                    !</p>
+                </div>
+              </div>
+            </a>
+          </template>
         </div>
       </div>
     </section>
@@ -70,10 +74,29 @@
         </g>
       </g>
     </svg>
-    <LayoutContact />
-    <LayoutFooter />
+    <LayoutContact/>
+    <LayoutFooter/>
   </div>
 </template>
 
-<script lang="ts">
+
+<script lang="ts" setup>
+import {eventsQuery} from "~/graphql/query"
+import {useRuntimeConfig} from "nuxt/app";
+
+const config = useRuntimeConfig();
+const {$md} = useNuxtApp()
+
+const {data, error} = await useFetch(config.public.BACKEND_API_URL, {
+  body: {
+    query: eventsQuery,
+    variables: {}
+  },
+  method: 'POST',
+  headers: {'Content-Type': 'application/json'},
+})
+
+if (error.value) throw createError(error.value)
+
+const eventsData = data.value.data.vieDuClub.data.attributes
 </script>

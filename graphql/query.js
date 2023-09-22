@@ -111,6 +111,34 @@ query Adulte {
             }
           }
         }
+        license {
+            name
+            price
+            description
+        }
+      }
+    }
+  }
+}`
+
+export const eventsQuery = `
+  query VieDuClub {
+  vieDuClub {
+    data {
+      attributes {
+        events {
+          date
+          title
+          content
+          image {
+            data {
+              attributes {
+                alternativeText
+                url
+              }
+            }
+          }
+        }
       }
     }
   }

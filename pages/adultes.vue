@@ -1,8 +1,8 @@
 <template>
   <div class="leading-normal tracking-normal text-white gradient-hero w-full bg-top bg-contain">
-    <LayoutNav />
+    <LayoutNav/>
 
-    <section id="about" class="bg-white border-b py-8 pt-24">
+    <section class="bg-white border-b py-8 pt-24">
       <div class="container mx-auto m-8">
         <div data-aos="fade-up-right" class="flex flex-wrap">
           <div class="w-full p-1">
@@ -38,7 +38,7 @@
               </h3>
               <div class="flex justify-center w-full">
                 <table class="table text-left text-sm text-black">
-                  <thead class="border-b gradient font-medium text-white">
+                  <thead class="border gradient font-medium text-white">
                   <tr>
                     <th scope="col" class="px-6 py-4">Licence (du 1er septembre au 31 aout)</th>
                     <th scope="col" class="px-6 py-4">Prix</th>
@@ -46,40 +46,36 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr class="border-b dark:border-neutral-500 border">
-                    <td class="px-6 py-4 font-medium">Adulte Compétition</td>
-                    <td class="px-6 py-4">140€</td>
-                    <td class="px-6 py-4">Accès à tout les entraînements + jeu libre + compétitions</td>
-                  </tr>
-                  <tr class="border-b dark:border-neutral-500 border">
-                    <td class="px-6 py-4 font-medium">Adulte Loisirs</td>
-                    <td class="px-6 py-4">100€</td>
-                    <td class="px-6 py-4">Accès aux créneaux de jeu libre</td>
-                  </tr>
-                  <tr class="border-b dark:border-neutral-500 border">
-                    <td class="px-6 py-4 font-medium">Enfant - École de badminton</td>
-                    <td class="px-6 py-4">90€</td>
-                    <td class="px-6 py-4">Entraînement jeune</td>
+                  <tr v-for="license in adultesData.license" class="border">
+                    <td class="px-6 py-4 font-medium" v-html="license.name"></td>
+                    <td class="px-6 py-4" v-html="license.price"></td>
+                    <td class="px-6 py-4" v-html="license.description"></td>
                   </tr>
                   </tbody>
                 </table>
               </div>
-              <p class="text-gray-600 mb-5 mt-5">Les réductions suivantes peuvent s'appliquer dans certains cas:</p>
-              <div class="flex justify-center w-full">
-                <table class="table-auto text-left text-sm text-black">
-                  <tbody>
-                  <tr class="border-b dark:border-neutral-500 border">
-                    <td class="whitespace-nowrap px-6 py-4">-10€</td>
-                    <td class="whitespace-nowrap px-6 py-4">Famille</td>
-                  </tr>
-                  <tr class="border-b dark:border-neutral-500 border">
-                    <td class="whitespace-nowrap px-6 py-4 font-medium">-10€</td>
-                    <td class="whitespace-nowrap px-6 py-4">Réinscription</td>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
+              <div class="text-gray-600 mb-5 mt-5" v-html="$md(adultesData.tarifs)"></div>
             </div>
+          </div>
+        </div>
+        <div v-if="adultesData.files.data.length > 0" class="w-full p-1 mt-10">
+          <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3 text-center lg:text-left">
+            Téléchargements
+          </h3>
+          <div class="grid grid-cols-1 lg:grid-cols-4 lg:gap-4 flex items-start text-black">
+            <a v-for="file in adultesData.files.data" :href="config.public.BACKEND_URL + file.attributes.url">
+              <div class="rounded-lg mb-4 p-6 gradient-grey flex items-center">
+                <div class="">
+                  <img alt="" src="../assets/imgs/pdf.png">
+                </div>
+                <div class="justify-self-start ml-10">
+                  <h5
+                    :class="'mb-2 text-l font-medium leading-tight text-neutral-800'">
+                    {{ file.attributes.name }} ({{ file.attributes.size }} Ko)
+                  </h5>
+                </div>
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -88,12 +84,12 @@
     <section v-if="adultesData.button_title" id="adherer" class="gradient border-b py-8">
       <div class="container mx-auto m-8 flex justify-center">
         <div data-aos="fade-up-left" class="flex flex-wrap">
-      <a
-        id="navAction" :href="adultesData.button_action"
-        class="mx-auto lg:mx-0 hover:underline gradient-grey text-neutral-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
-      >
-        {{ adultesData.button_title }}
-      </a>
+          <a
+            id="navAction" :href="adultesData.button_action"
+            class="mx-auto lg:mx-0 hover:underline gradient-grey text-neutral-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
+          >
+            {{ adultesData.button_title }}
+          </a>
         </div>
       </div>
     </section>
@@ -134,8 +130,8 @@
         </g>
       </g>
     </svg>
-    <LayoutContact />
-    <LayoutFooter />
+    <LayoutContact/>
+    <LayoutFooter/>
   </div>
 </template>
 
