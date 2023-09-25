@@ -8,64 +8,41 @@
           data-aos="fade-up"
           class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800"
         >
-          Tournoi Double Jeu d'Augny
+          {{ doubleJeuData.title }}
         </h2>
-        <div data-aos="fade-up-right" class="flex flex-wrap items-center justify-items-center">
-          <div class="w-full lg:w-2/3 p-1">
-            <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3 text-center lg:text-left">
-              Le rendez-vous du printemps
-            </h3>
-            <p class="text-gray-600 mb-8">
-              Chaque année, au printemps, le club de badminton d'Augny organise un tournoi passionnant qui rassemble les amateurs de badminton de la région. Cet événement est l'un des moments forts de l'année pour les passionnés de ce sport dynamique et exigeant. Le tournoi se déroule sur plusieurs jours et met en vedette trois catégories passionnantes : le mixte, le double homme et le double femme. <br/>
-              <br/>
-              Le tournoi de double mixte est un véritable spectacle, mettant en scène des duos composés d'un homme et d'une femme. Les joueurs rivalisent pour démontrer leur coordination et leur complémentarité sur le terrain.<br/>
-              <br/>
-              Le double masculin est une épreuve où la force, la vitesse et la stratégie sont mises à l'épreuve. Les équipes de deux hommes se disputent la suprématie, enchaînant les smashes et les amorties pour marquer des points cruciaux. Les spectateurs sont souvent impressionnés par la puissance et l'agilité des joueurs dans cette catégorie.<br/>
-              <br/>
-              Dans la compétition du double féminin, les joueuses montrent leur talent, leur agilité et leur précision sur le terrain. Les équipes féminines rivalisent dans des matchs palpitants où chaque volant compte. Le public est conquis par le niveau de jeu élevé et la détermination des participantes.<br/>
-              <br />
-            </p>
-          </div>
-          <div class="p-1 w-full lg:w-1/3">
-            <img class="mx-auto h-auto max-w-full" src="../assets/imgs/affiche-double-jeu.jpeg" />
-          </div>
-        </div>
-        <div
-          data-aos="fade-up-left"
-          class="flex flex-wrap flex-col-reverse sm:flex-row"
-        >
-          <div class="w-full sm:w-1/2 p-6 mt-6">
+        <div v-for="(article, index) in doubleJeuData.articles"
+             :key="article"
+             :data-aos="'fade-up-' + ((index % 2 == 1) ? 'left' : 'right')" class="flex flex-wrap items-center justify-items-center">
+          <div v-if="article.image.data.length > 1 && index % 2 == 1" class="w-full sm:w-1/2 p-6 mt-6">
             <div class="grid grid-cols-2 gap-2">
-              <div>
-                <img class="h-auto max-w-full rounded-lg" src="../assets/imgs/double-jeu-1.jpeg" alt="">
-              </div>
-              <div>
-                <img class="h-auto max-w-full rounded-lg" src="../assets/imgs/double-jeu-2.jpeg" alt="">
-              </div>
-              <div>
-                <img class="h-auto max-w-full rounded-lg" src="../assets/imgs/double-jeu-3.jpeg" alt="">
-              </div>
-              <div>
-                <img class="h-auto max-w-full rounded-lg" src="../assets/imgs/double-jeu-4.jpeg" alt="">
+              <div v-for="image in article.image.data">
+                <img :src="config.public.BACKEND_URL + image.attributes.url" alt=""
+                     class="h-auto max-w-full rounded-lg">
               </div>
             </div>
           </div>
-          <div class="w-full sm:w-1/2 p-6 mt-6">
-            <div class="align-middle">
-              <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
-                Bonne ambiance assurée
-              </h3>
-              <p class="text-gray-600 mb-8">
-                Le club de badminton d'Augny met tout en œuvre pour offrir une expérience inoubliable aux joueurs et aux spectateurs. L'atmosphère est électrique, avec des encouragements passionnés venant des tribunes à chaque instant décisif. En plus de l'action sur le terrain, le tournoi propose également des animations et des stands pour les amateurs de badminton de tous niveaux.<br/>
-                Que vous soyez un joueur chevronné ou un simple amateur de badminton, le tournoi d'Augny est l'occasion parfaite de célébrer ce sport dynamique et de découvrir de nouveaux talents. Rejoignez-nous chaque printemps pour vivre l'excitation du badminton à son meilleur au club de badminton d'Augny.<br/>
-                <br/>
-                Les lots sont assurés par notre partenaire "3 Brasseurs" pour les vainqueurs et les finalistes !<br/>
-              </p>
-              <a href=""
-                class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
-              >
-                S'inscrire sur eBad
-              </a>
+          <div v-if="article.image.data.length == 1 && index % 2 == 1" class="w-full sm:w-1/3 p-1">
+            <img :src="config.public.BACKEND_URL + article.image.data[0].attributes.url"
+                 class="h-1/2 mx-auto max-w-full"/>
+          </div>
+          <div :class="{ [`sm:w-2/3`]: article.image.data.length  <= 1, [`sm:w-1/2`]: article.image.data.length  > 1 }"
+               class="w-full p-1'">
+            <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3 text-center lg:text-left">
+              {{ article.title }}
+            </h3>
+            <div class="text-gray-600 mb-8" v-html="$md(article.content)">
+            </div>
+          </div>
+          <div v-if="article.image.data.length == 1 && index % 2 == 0" class="w-full sm:w-1/3 p-1">
+            <img :src="config.public.BACKEND_URL + article.image.data[0].attributes.url"
+                 class="h-1/2 mx-auto max-w-full"/>
+          </div>
+          <div v-if="article.image.data.length > 1 && index % 2 == 0" class="w-full sm:w-1/2 p-6 mt-6">
+            <div class="grid grid-cols-2 gap-2">
+              <div v-for="image in article.image.data">
+                <img :src="config.public.BACKEND_URL + image.attributes.url" alt=""
+                     class="h-auto max-w-full rounded-lg">
+              </div>
             </div>
           </div>
         </div>
@@ -112,6 +89,24 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
+import {doubleJeuQuery} from "~/graphql/query"
+import {useRuntimeConfig} from "nuxt/app";
 
+const config = useRuntimeConfig();
+const {$md} = useNuxtApp()
+
+const {data, error} = await useFetch(config.public.BACKEND_API_URL, {
+  body: {
+    query: doubleJeuQuery,
+    variables: {}
+  },
+  method: 'POST',
+  headers: {'Content-Type': 'application/json'},
+})
+
+if (error.value) throw createError(error.value)
+
+const doubleJeuData = data.value.data.doubleJeu.data.attributes
 </script>
+

@@ -29,7 +29,7 @@
       </div>
       <div
         :class="mobileSidebar ? '' : 'hidden'"
-        class="w-full flex-grow lg:flex lg:items-center lg:w-auto mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20"
+        class="w-full flex-grow lg:flex lg:items-center lg:w-auto mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20 "
         id="nav-content"
       >
         <ul class="list-reset lg:flex justify-end flex-1 items-center">
@@ -50,13 +50,6 @@
           <li class="mr-3">
             <a
               class="inline-block uppercase no-underline hover:underline font-medium hover:text-gray-800 hover:text-underline py-2 px-4"
-              href="/jeunes"
-              >École de Badminton</a
-            >
-          </li>
-          <li class="mr-3">
-            <a
-              class="inline-block uppercase no-underline hover:underline font-medium hover:text-gray-800 hover:text-underline py-2 px-4"
               href="/events"
             >Vie du club</a
             >
@@ -65,7 +58,7 @@
             <a
               class="inline-block uppercase no-underline hover:underline font-medium hover:text-gray-800 hover:text-underline py-2 px-4"
               href="/doublejeu"
-            >Double Jeu d'Augny</a
+            >Tournois</a
             >
           </li>
           <li class="mr-3 mt-3">
@@ -85,7 +78,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import {defineComponent} from "vue";
 
 export default defineComponent({
   name: "layout-nav",

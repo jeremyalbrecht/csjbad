@@ -143,3 +143,28 @@ export const eventsQuery = `
     }
   }
 }`
+
+export const doubleJeuQuery = `
+  query DoubleJeu {
+  doubleJeu {
+    data {
+      attributes {
+        title
+        articles {
+          title
+          content
+          button_title
+          button_url
+          image {
+            data {
+              attributes {
+                alternativeText
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}`

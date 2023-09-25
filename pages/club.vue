@@ -41,7 +41,7 @@
         </g>
       </svg>
     </div>
-    <section id="about" class="bg-white border-b py-8">
+    <section id="about" class="bg-white border-b  pt-28">
       <div class="container mx-auto m-8">
         <h2
           data-aos="fade-up"
