@@ -7,12 +7,16 @@ export default defineNuxtConfig({
   meta: {
     title: 'CSJBAD Augny Badminton - Club et école de badminton à côté de Metz licencié FFBad',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'fr'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Découvrez le club de badminton d\'Augny près de Metz. Adhérez à notre club affilié à la Fédération Française de Badminton et vivez la passion du badminton avec nous !'
+      },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
