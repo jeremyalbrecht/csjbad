@@ -16,10 +16,10 @@
                   <div v-for="c in adultesData.creneaux.filter(c => c.day == day)"
                        :class="'rounded-lg mb-4 hover p-6 ' + ((c.color == 'Gris') ? 'gradient-grey' : 'gradient')">
                     <h5
-                      :class="'mb-2 text-xl font-medium leading-tight text-neutral-' + ((c.color == 'Gris') ? '800' : '50')">
+                      :class="'mb-2 text-xl font-medium leading-tight ' + ((c.color == 'Gris') ? 'text-neutral-800' : 'text-neutral-50')">
                       {{ c.title }}
                     </h5>
-                    <p :class="'mb-4 text-base text-neutral-' + ((c.color == 'Gris') ? '600' : '200')">
+                    <p :class="'mb-4 text-base ' + ((c.color == 'Gris') ? 'text-neutral-600' : 'text-neutral-200')">
                       {{ c.subtitle }}
                     </p>
                   </div>
@@ -63,7 +63,7 @@
             Téléchargements
           </h3>
           <div class="grid grid-cols-1 lg:grid-cols-4 lg:gap-4 flex items-start text-black">
-            <a v-for="file in adultesData.files.data" :href="config.public.BACKEND_URL + file.attributes.url">
+            <a v-for="file in adultesData.files.data" :href="file.attributes.url">
               <div class="rounded-lg mb-4 p-6 gradient-grey flex items-center">
                 <div class="">
                   <img alt="" src="../assets/imgs/pdf.png">

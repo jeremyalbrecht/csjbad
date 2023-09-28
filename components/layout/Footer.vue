@@ -25,8 +25,9 @@
           </ul>
         </div>
         <div v-for="sponsor in data.data.sponsors.data" class="flex-1 justify-self-center">
-          <img :src="config.public.BACKEND_URL + sponsor.attributes.logo.data.attributes.url"
-               alt="Logo du département de la Moselle" class="m-auto h-auto max-w-full"/>
+          <img v-if="sponsor.attributes.logo.data"
+               :src="sponsor.attributes.logo.data.attributes.url" alt="Logo du département de la Moselle"
+               class="m-auto h-auto max-w-full"/>
           </div>
       </div>
 

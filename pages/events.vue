@@ -16,7 +16,8 @@
               :class="((((index)) % 4) >= 2 || index == 0 ? 'md:col-span-2 ' : '') + 'flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row'">
               <img v-if="event.image.data"
                    :alt="event.image.data.attributes.alternativeText"
-                   :src="config.public.BACKEND_URL + event.image.data.attributes.url" class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-64 md:rounded-none md:rounded-l-lg">
+                   :src="event.image.data.attributes.url"
+                   class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-64 md:rounded-none md:rounded-l-lg">
               <div class="flex flex-col justify-between p-4 leading-normal">
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ event.title }}</h5>
                 <div class="mb-3 font-normal text-gray-700 dark:text-gray-400" v-html="$md(event.content)"></div>
