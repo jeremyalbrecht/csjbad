@@ -15,7 +15,7 @@
   width: 100vw;
   height: 100vh;
   z-index: -10;
-  background: url(assets/imgs/hero.webp) no-repeat center center;
+  background: url(assets/imgs/hero.webp) no-repeat top center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
