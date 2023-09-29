@@ -15,7 +15,6 @@ useHead({
       content: 'Découvrez le club de badminton d\'Augny près de Metz. Adhérez à notre club affilié à la Fédération Française de Badminton et vivez la passion du badminton avec nous !'
     },
   ],
-  link: [{rel: 'canonical', href: 'https://augny-badminton.fr/'}],
 });
 
 useSeoMeta({
