@@ -36,28 +36,28 @@
           <li class="mr-3">
             <a
               class="inline-block uppercase no-underline hover:underline font-medium hover:text-gray-800 hover:text-underline py-2 px-4"
-              href="/club"
+              href="/club/"
               >Le Club</a
             >
           </li>
           <li class="mr-3">
             <a
               class="inline-block uppercase no-underline hover:underline font-medium hover:text-gray-800 hover:text-underline py-2 px-4"
-              href="/adultes"
+              href="/adultes/"
               >Adultes</a
             >
           </li>
           <li class="mr-3">
             <a
               class="inline-block uppercase no-underline hover:underline font-medium hover:text-gray-800 hover:text-underline py-2 px-4"
-              href="/events"
+              href="/events/"
             >Vie du club</a
             >
           </li>
           <li class="mr-3">
             <a
               class="inline-block uppercase no-underline hover:underline font-medium hover:text-gray-800 hover:text-underline py-2 px-4"
-              href="/doublejeu"
+              href="/doublejeu/"
             >Tournois</a
             >
           </li>
