@@ -1,5 +1,5 @@
 <template>
-  <div class="leading-normal tracking-normal text-white gradient-hero w-full bg-top bg-contain">
+  <div class="leading-normal tracking-normal text-white gradient-hero w-full">
     <LayoutNav/>
 
     <section class="bg-white border-b py-8 pt-24">
