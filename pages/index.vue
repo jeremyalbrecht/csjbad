@@ -63,7 +63,8 @@
         <div v-for="(article, index) in homePageData.articles"
              :key="article"
              :class="'flex mb-4 flex-wrap items-center justify-items-center ' + ((index % 2 == 1) ? 'flex-col-reverse sm:flex-row' : '')" :data-aos="'fade-up-' + ((index % 2 == 1) ? 'left' : 'right')">
-          <div v-if="article.image.data.length > 0 && index % 2 == 1" class="hidden sm:block w-full sm:w-1/3 p-1">
+          <div v-if="article.image.data.length > 0 && index % 2 == 1"
+               class="hidden sm:block w-full sm:w-1/3 p-1 sm:pr-10">
             <img :src="article.image.data[0].attributes.url" class="h-auto mx-auto"/>
           </div>
           <div class="w-full flex flex-col lg:w-2/3 p-1 mb-5 sm:mb-0">
