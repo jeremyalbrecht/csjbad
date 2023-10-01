@@ -40,21 +40,22 @@
                 <table class="table text-left text-sm text-black">
                   <thead class="border gradient font-medium text-white">
                   <tr>
-                    <th scope="col" class="px-6 py-4">Licence (du 1er septembre au 31 aout)</th>
-                    <th scope="col" class="px-6 py-4">Prix</th>
-                    <th scope="col" class="px-6 py-4"></th>
+                    <th class="px-6 py-4" scope="col">Licence</th>
+                    <th class="px-6 py-4 " scope="col">Prix</th>
+                    <th class="px-6 py-4 " scope="col"></th>
                   </tr>
                   </thead>
                   <tbody>
                   <tr v-for="license in adultesData.license" class="border">
-                    <td class="px-6 py-4 font-medium" v-html="license.name"></td>
-                    <td class="px-6 py-4" v-html="license.price"></td>
+                    <td class="px-6 py-4 font-medium" v-html="$md(license.name)"></td>
+                    <td class="px-6 py-4" v-html="$md(license.price)"></td>
                     <td class="px-6 py-4" v-html="license.description"></td>
                   </tr>
                   </tbody>
                 </table>
               </div>
-              <div class="text-gray-600 mb-5 mt-5" v-html="$md(adultesData.tarifs)"></div>
+              <div class="flex flex-col items-center justify-center italic text-gray-600 mb-5 mt-10"
+                   v-html="$md(adultesData.tarifs)"></div>
             </div>
           </div>
         </div>

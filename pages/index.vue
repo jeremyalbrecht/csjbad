@@ -9,11 +9,10 @@
         <div
           class="flex flex-col w-full pt-40  md:w-2/5 justify-center items-start text-center md:text-left"
         >
-          <p class="uppercase tracking-loose w-full">{{ homePageData.hero_small_title }}</p>
-          <h1 class="my-4 text-5xl font-bold leading-tight">
-            {{ homePageData.hero_big_title }}
+          <h3 class="uppercase tracking-loose w-full" v-html="homePageData.hero_small_title"></h3>
+          <h1 class="my-4 text-5xl font-bold leading-tight font-" v-html="homePageData.hero_big_title">
           </h1>
-          <p class="leading-normal text-2xl mb-8">
+          <p class="leading-normal text-2xl mb-8 font-extralight">
             {{ homePageData.hero_description }}
           </p>
 
@@ -60,32 +59,27 @@
       </svg>
     </div>
     <section id="about" class="bg-white border-b py-8">
-      <div class="container mx-auto m-8">
-        <h2
-          data-aos="fade-up"
-          class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800"
-        >
-          Présentation
-        </h2>
+      <div class="container mx-auto">
         <div v-for="(article, index) in homePageData.articles"
              :key="article"
              :class="'flex mb-4 flex-wrap items-center justify-items-center ' + ((index % 2 == 1) ? 'flex-col-reverse sm:flex-row' : '')" :data-aos="'fade-up-' + ((index % 2 == 1) ? 'left' : 'right')">
-          <div v-if="article.image.data.length > 0 && index % 2 == 1" class="w-full sm:w-1/3 p-1">
+          <div v-if="article.image.data.length > 0 && index % 2 == 1" class="hidden sm:block w-full sm:w-1/3 p-1">
             <img :src="article.image.data[0].attributes.url" class="h-auto mx-auto"/>
           </div>
-          <div class="w-full lg:w-2/3 p-1 mb-5 sm:mb-0">
-            <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3 text-center lg:text-left">
+          <div class="w-full flex flex-col lg:w-2/3 p-1 mb-5 sm:mb-0">
+            <h3 class="text-3xl text-gray-800 font-bold leading-none mb-8 text-center lg:text-left">
               {{ article.title }}
             </h3>
-            <div class="text-gray-600 mb-8" v-html="$md(article.content)">
+            <div class="text-gray-600 mb-8 " v-html="$md(article.content)"></div>
+            <div class="flex justify-center">
+              <a v-if="article.button_title" :href="article.button_url" class="gradient text-white hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
+                 target="_blank"
+              >
+                {{ article.button_title }}
+              </a>
             </div>
-            <a v-if="article.button_title" :href="article.button_url"
-               class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
-            >
-              {{ article.button_title }}
-            </a>
           </div>
-          <div v-if="article.image.data.length > 0 && index % 2 == 0" class="w-full sm:w-1/3 p-1">
+          <div v-if="article.image.data.length > 0 && index % 2 == 0" class="w-full hidden sm:block sm:w-1/3 p-1">
             <img :src="article.image.data[0].attributes.url" class="h-auto mx-auto"/>
           </div>
         </div>

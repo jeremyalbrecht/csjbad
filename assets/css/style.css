@@ -3,7 +3,19 @@
 
 * {
   transition: all .3s linear;
-  font-family: 'SourceSansPro', sans-serif
+  font-family: 'Raleway', sans-serif
+}
+
+h1, h3 {
+  font-family: Raleway, Serif;
+}
+
+h1 {
+
+}
+
+p, table {
+  font-family: Roboto;
 }
 
 .gradient-hero:before {
