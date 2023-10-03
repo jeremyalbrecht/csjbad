@@ -42,6 +42,12 @@ p, table {
   background: linear-gradient(107deg, rgba(32,32,67,1) 0%, rgba(0,128,244,1) 100%);
 }
 
+.gradient-text {
+  background: linear-gradient(107deg, rgba(32, 32, 67, 1) 0%, rgba(0, 128, 244, 1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 @media (max-width: 768px) {
   [data-aos] {
     opacity: 1 !important;

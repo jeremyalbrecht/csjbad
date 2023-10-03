@@ -82,6 +82,19 @@ query Club {
           button_url
           button_title
         }
+        comiteeMembers {
+          name
+          function
+          description
+          image {
+              data {
+                  attributes {
+                      alternativeText
+                      url
+                  }
+              }
+          }
+      }
       }
     }
   }
