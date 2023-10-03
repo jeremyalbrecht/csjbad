@@ -76,6 +76,7 @@ query Club {
             data {
               attributes {
                 url
+                caption
               }
             }
           }
@@ -91,6 +92,7 @@ query Club {
                   attributes {
                       alternativeText
                       url
+                      caption
                   }
               }
           }
@@ -121,6 +123,7 @@ query Adulte {
               ext
               size
               url
+              caption
             }
           }
         }

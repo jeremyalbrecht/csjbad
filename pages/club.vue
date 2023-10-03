@@ -83,7 +83,7 @@
             <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3 text-center lg:text-left">
               Comité
             </h3>
-            <div class="text-gray-600 mb-8">
+            <div class="text-gray-600 mb-8 mt-8">
               <div class="grid grid-cols-1 md:grid-cols-3 gap-3 place-items-center">
                 <div v-for="member in clubData.comiteeMembers"
                      class="sm:basis-1/3 relative w-3/4 bg-white shadow-lg rounded-xl flex items-center gap-6 ">

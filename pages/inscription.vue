@@ -63,16 +63,14 @@
           <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3 text-center lg:text-left">
             Téléchargements
           </h3>
-          <div class="grid grid-cols-1 lg:grid-cols-4 lg:gap-4 flex items-start text-black">
-            <a v-for="file in adultesData.files.data" :href="file.attributes.url">
-              <div class="rounded-lg mb-4 p-6 gradient-grey flex items-center">
-                <div class="">
-                  <img alt="" src="../assets/imgs/pdf.png">
-                </div>
-                <div class="justify-self-start ml-10">
-                  <h5
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-3 flex items-start">
+            <a v-for="file in adultesData.files.data" :href="file.attributes.url" class="max-w-full">
+              <div class="rounded-lg p-3 gradient-grey flex flex-row items-center">
+                <img alt="" class="w-24 h-24" src="../assets/imgs/pdf.png">
+                <div class="col-span-2">
+                  <h5 style="overflow-wrap: break-word;"
                     :class="'mb-2 text-l font-medium leading-tight text-neutral-800'">
-                    {{ file.attributes.name }} ({{ file.attributes.size }} Ko)
+                    {{ file.attributes.caption }} ({{ file.attributes.size }} Ko)
                   </h5>
                 </div>
               </div>
