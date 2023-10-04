@@ -59,6 +59,23 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+    <section v-if="adultesData.button_title" id="adherer" class="gradient border-b py-8">
+      <div class="container mx-auto m-8 flex justify-center">
+        <div class="flex flex-wrap" data-aos="fade-up-left">
+          <a
+            id="navAction" :href="adultesData.button_action"
+            class="mx-auto lg:mx-0 hover:underline gradient-grey text-neutral-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
+          >
+            {{ adultesData.button_title }}
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white border-b py-8 ">
+      <div class="container mx-auto m-8">
         <div v-if="adultesData.files.data.length > 0" class="w-full p-1 mt-10">
           <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3 text-center lg:text-left">
             Téléchargements
@@ -80,18 +97,6 @@
       </div>
     </section>
 
-    <section v-if="adultesData.button_title" id="adherer" class="gradient border-b py-8">
-      <div class="container mx-auto m-8 flex justify-center">
-        <div data-aos="fade-up-left" class="flex flex-wrap">
-          <a
-            id="navAction" :href="adultesData.button_action"
-            class="mx-auto lg:mx-0 hover:underline gradient-grey text-neutral-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
-          >
-            {{ adultesData.button_title }}
-          </a>
-        </div>
-      </div>
-    </section>
 
     <LayoutContact/>
     <LayoutFooter/>
