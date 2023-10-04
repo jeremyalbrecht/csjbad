@@ -59,8 +59,39 @@
             </div>
           </div>
         </div>
+
+        <div
+          v-if="adultesData.trainers.length > 0"
+          class="flex flex-wrap flex-col-reverse sm:flex-row" data-aos="fade-up-left">
+          <div class="w-full mt-10">
+            <div class="align-middle">
+              <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3 text-center lg:text-left">
+                <template v-if="adultesData.trainers.length == 1">Notre entraîneur</template>
+                <template v-else>Nos entraîneurs</template>
+              </h3>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-3 place-items-center place-content-around w-full">
+                <div v-for="member in adultesData.trainers"
+                     class="sm:basis-1/3 relative w-3/4 bg-white shadow-lg rounded-xl flex items-center gap-6 mt-7 sm:md-0">
+                  <img v-if="member.image.data" :alt="member.image.data.attributes.alternativeText"
+                       :src="member.image.data.attributes.url"
+                       class="absolute -left-6 w-24 h-24 rounded-full shadow-lg">
+                  <img v-else :alt="member.name"
+                       class="absolute -left-6 w-24 h-24 rounded-full shadow-lg" src="../assets/imgs/fb-profile.jpeg">
+                  <div class="flex flex-col py-5 pl-24">
+                    <p class="text-slate-900 font-medium"><strong class="gradient-text">{{ member.name }}</strong> <span
+                      class="text-xs font-extrabold">{{
+                        member.function
+                      }}</span></p>
+                    <p class="text-slate-700 text-sm">{{ member.description }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
+
     <section v-if="adultesData.button_title" id="adherer" class="gradient border-b py-8">
       <div class="container mx-auto m-8 flex justify-center">
         <div class="flex flex-wrap" data-aos="fade-up-left">

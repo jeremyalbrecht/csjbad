@@ -1,8 +1,44 @@
 <template>
   <div class="leading-normal tracking-normal text-white gradient-hero w-full bg-top bg-contain">
     <LayoutNav/>
+    <section class="pt-28 bg-white"></section>
+    <section v-if="eventsData.teams.length > 0" class="bg-white border-b py-8">
+      <div class="container mx-auto m-8">
+        <h2
+          class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800"
+          data-aos="fade-up"
+        >
+          Nos équipes d'Interclub
+        </h2>
+        <div class="place-content-center grid grid-cols-1 md:grid-cols-6 gap-6 mt-6" data-aos="fade-up-right">
+          <template v-for="team in eventsData.teams">
+            <div v-if="team.major && team.image.data"
+                 :class="'col-span-2 min-h-[30vh] relative rounded-3xl shadow-xl hover:scale-105 transition duration-500 '"
+                 :style="{background: `url(${team.image.data.attributes.url})`, backgroundPosition: 'center top'}">
+              <h1
+                class="text-4xl uppercase text-white bg-blue-700 bg-opacity-75 rounded-full p-5 absolute md:-left-4 md:-top-4 ">
+                {{ team.ranking }}
+              </h1>
+            </div>
+            <div v-if="team.major && !team.image.data"
+                 :class="'col-span-2 min-h-[30vh] relative rounded-3xl shadow-xl hover:scale-105 transition duration-500 ' + ((team.color == 'blue') ? 'gradient' : 'gradient-grey')">
+              <h1
+                class="text-4xl uppercase text-white bg-blue-700 bg-opacity-75 rounded-full p-5 absolute md:-left-4 md:-top-4 ">
+                {{ team.ranking }}
+              </h1>
+            </div>
+            <div v-if="!team.major"
+                 :class="'col-span-3 flex justify-center items-center min-h-[10vh] rounded-3xl shadow-xl '+ ((team.color == 'blue') ? 'gradient' : 'gradient-gray') + ' hover:scale-105 transition duration-500 '">
+              <h1 class="text-4xl  text-white ">
+                {{ team.ranking }}
+              </h1>
+            </div>
+          </template>
+        </div>
+      </div>
+    </section>
 
-    <section class="bg-white border-b py-8 pt-28">
+    <section class="bg-white border-b py-8">
       <div class="container mx-auto m-8">
         <h2
           data-aos="fade-up"
@@ -27,7 +63,8 @@
               <div
                 class="flex flex-col items-center bg-white border gradient rounded-lg shadow md:flex-row md:max-w-xl border-gray-700 ">
                 <img alt=""
-                     class="object-cover w-full hidden md:block h-96 md:h-auto md:w-64 rounded-full" src="../assets/imgs/fb-profile.jpeg">
+                     class="object-cover w-full hidden md:block h-96 md:h-auto md:w-64 rounded-full"
+                     src="../assets/imgs/fb-profile.jpeg">
                 <div class="flex flex-col justify-between p-4 leading-normal">
                   <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">Retrouvez nos événements sur
                     Facebook</h5>
@@ -63,6 +100,6 @@ const {data, error} = await useFetch(config.public.BACKEND_API_URL, {
 })
 
 if (error.value) throw createError(error.value)
-
 const eventsData = data.value.data.vieDuClub.data.attributes
+
 </script>

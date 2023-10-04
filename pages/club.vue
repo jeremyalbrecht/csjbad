@@ -77,6 +77,7 @@
             <img :src="article.image.data[0].attributes.url" class="h-auto mx-auto rounded"/>
           </div>
         </div>
+
         <div v-if="clubData.comiteeMembers.length > 0"
              class="flex mb-4 flex-wrap items-center justify-items-center" data-aos="fade-up-left">
           <div class="w-full p-1 mb-5 sm:mb-0">

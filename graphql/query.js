@@ -127,6 +127,19 @@ query Adulte {
             }
           }
         }
+        trainers {
+          name
+          function
+          description
+          image {
+            data {
+              attributes {
+                alternativeText
+                url
+              }
+            }
+          }
+      }
         license {
             name
             price
@@ -155,6 +168,19 @@ export const eventsQuery = `
             }
           }
         }
+        teams {
+          ranking
+          color
+          major
+          image {
+            data {
+              attributes {
+                alternativeText
+                url
+              }
+            }
+          }
+      }
       }
     }
   }
