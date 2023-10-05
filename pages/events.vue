@@ -10,26 +10,26 @@
         >
           Nos équipes d'Interclub
         </h2>
-        <div class="place-content-center grid grid-cols-1 md:grid-cols-6 gap-6 mt-6" data-aos="fade-up-right">
+        <div class="place-content-center grid grid-cols-1 md:grid-cols-6 gap-6 m-6" data-aos="fade-up-right">
           <template v-for="team in eventsData.teams">
             <div v-if="team.major && team.image.data"
-                 :class="'col-span-2 min-h-[30vh] relative rounded-3xl shadow-xl hover:scale-105 transition duration-500 '"
-                 :style="{background: `url(${team.image.data.attributes.url})`, backgroundPosition: 'center top'}">
+                 :class="'md:col-span-2 min-h-[30vh] relative rounded-3xl shadow-xl hover:scale-105 transition duration-500 '"
+                 :style="{background: `url(${team.image.data.attributes.url})`, backgroundPosition: 'center top', backgroundSize: 'cover'}">
               <h1
-                class="text-4xl uppercase text-white bg-blue-700 bg-opacity-75 rounded-full p-5 absolute md:-left-4 md:-top-4 ">
+                class="text-4xl uppercase text-white bg-blue-700 bg-opacity-75 rounded-full p-5 absolute -left-4 -top-4 ">
                 {{ team.ranking }}
               </h1>
             </div>
             <div v-if="team.major && !team.image.data"
-                 :class="'col-span-2 min-h-[30vh] relative rounded-3xl shadow-xl hover:scale-105 transition duration-500 ' + ((team.color == 'blue') ? 'gradient' : 'gradient-grey')">
+                 :class="'md:col-span-2 min-h-[30vh] relative rounded-3xl shadow-xl hover:scale-105 transition duration-500 ' + ((team.color == 'blue') ? 'gradient' : 'gradient-grey')">
               <h1
-                class="text-4xl uppercase text-white bg-blue-700 bg-opacity-75 rounded-full p-5 absolute md:-left-4 md:-top-4 ">
+                class="text-4xl uppercase text-white bg-blue-700 bg-opacity-75 rounded-full p-5 absolute -left-4 -top-4 ">
                 {{ team.ranking }}
               </h1>
             </div>
             <div v-if="!team.major"
-                 :class="'col-span-3 flex justify-center items-center min-h-[10vh] rounded-3xl shadow-xl '+ ((team.color == 'blue') ? 'gradient' : 'gradient-gray') + ' hover:scale-105 transition duration-500 '">
-              <h1 class="text-4xl  text-white ">
+                 :class="'md:col-span-3 flex justify-center items-center min-h-[10vh] rounded-3xl shadow-xl '+ ((team.color == 'blue') ? 'gradient' : 'gradient-gray') + ' hover:scale-105 transition duration-500 '">
+              <h1 :class="'text-4xl ' + ((team.color == 'blue') ? 'text-white' : 'text-gray-800') ">
                 {{ team.ranking }}
               </h1>
             </div>
