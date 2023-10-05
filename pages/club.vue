@@ -118,6 +118,16 @@
 import {clubQuery} from "~/graphql/query"
 import {useRuntimeConfig} from "nuxt/app";
 
+useHead({
+  title: 'Notre club | CSJBAD Augny Badminton',
+  meta: [
+    {
+      name: 'description',
+      content: 'Notre club de badminton a été fondé en 2003 à Augny, à côté de Metz. Découvrez l\'ambiance unique qui règne dans ce club à la fois compétiteurs et loisirs'
+    },
+  ],
+});
+
 const config = useRuntimeConfig();
 const {$md} = useNuxtApp()
 

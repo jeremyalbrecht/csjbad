@@ -57,6 +57,15 @@
 import {doubleJeuQuery} from "~/graphql/query"
 import {useRuntimeConfig} from "nuxt/app";
 
+useHead({
+  title: 'Nos tournois | CSJBAD Augny Badminton',
+  meta: [
+    {
+      name: 'description',
+      content: 'Chaque année à la rentrée et au début du printemps, le club de badminton d\'Augny (CSJBAD) organise un grand tournoi en double jeu. Revivez ces tournois à travers les photos'
+    },
+  ],
+});
 const config = useRuntimeConfig();
 const {$md} = useNuxtApp()
 

@@ -138,6 +138,16 @@
 import {adultesQuery} from "~/graphql/query"
 import {useRuntimeConfig} from "nuxt/app";
 
+useHead({
+  title: 'Horaires & Licences | CSJBAD Augny Badminton',
+  meta: [
+    {
+      name: 'description',
+      content: 'Comment venir jouer au club de badminton d\'Augny ? Renseignez-vous sur les horaires et les différentes licences de ce club de Badminton affilié FFBad'
+    },
+  ],
+});
+
 const config = useRuntimeConfig();
 const {$md} = useNuxtApp()
 const dayOfWeek = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"]

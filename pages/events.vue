@@ -87,6 +87,16 @@
 import {eventsQuery} from "~/graphql/query"
 import {useRuntimeConfig} from "nuxt/app";
 
+useHead({
+  title: 'Vie du Club | CSJBAD Augny Badminton',
+  meta: [
+    {
+      name: 'description',
+      content: 'Augny Badminton est engagé dans les compétitions régionales avec des équipes d\'Interclub. Découvrez les équipes et les différents évènements qui animent le club'
+    },
+  ],
+});
+
 const config = useRuntimeConfig();
 const {$md} = useNuxtApp()
 
