@@ -36,9 +36,9 @@
               <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3 text-center lg:text-left">
                 Tarifs
               </h3>
-              <div class="flex justify-center w-full">
-                <table class="table text-left text-sm text-black">
-                  <thead class="border gradient font-medium text-white">
+              <div class="flex justify-center w-full ">
+                <table class="table text-left text-sm text-black gradient">
+                  <thead class="border font-medium text-white">
                   <tr>
                     <th class="px-6 py-4" scope="col">Licence</th>
                     <th class="px-6 py-4 " scope="col">Prix</th>
@@ -46,7 +46,7 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr v-for="license in adultesData.license" class="border">
+                  <tr v-for="license in adultesData.license" class="border odd:bg-white even:bg-slate-50">
                     <td class="px-6 py-4 font-medium" v-html="$md(license.name)"></td>
                     <td class="px-6 py-4" v-html="$md(license.price)"></td>
                     <td class="px-6 py-4" v-html="license.description"></td>
