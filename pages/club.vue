@@ -59,7 +59,8 @@
              :class="'flex mb-4 flex-wrap items-center justify-items-center ' + ((index % 2 == 1) ? 'flex-col-reverse sm:flex-row' : '')"
              :data-aos="'fade-up-' + ((index % 2 == 1) ? 'left' : 'right')">
           <div v-if="article.image.data.length > 0 && index % 2 == 1" class="w-full sm:w-1/3 p-1">
-            <img :src="article.image.data[0].attributes.url" class="h-auto mx-auto rounded-lg"/>
+            <img :alt="article.image.data[0].attributes.alternativeText" :src="article.image.data[0].attributes.url"
+                 class="h-auto mx-auto rounded-lg"/>
           </div>
           <div class="w-full lg:w-2/3 p-1 mb-5 sm:mb-0">
             <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3 text-center lg:text-left">
@@ -74,7 +75,8 @@
             </a>
           </div>
           <div v-if="article.image.data.length > 0 && index % 2 == 0" class="w-full sm:w-1/3 p-1">
-            <img :src="article.image.data[0].attributes.url" class="h-auto mx-auto rounded"/>
+            <img :alt="article.image.data[0].attributes.alternativeText" :src="article.image.data[0].attributes.url"
+                 class="h-auto mx-auto rounded"/>
           </div>
         </div>
 
@@ -91,7 +93,8 @@
                   <img v-if="member.image.data" :alt="member.image.data.attributes.alternativeText"
                        :src="member.image.data.attributes.url" class="absolute -left-6 w-24 h-24 rounded-full shadow-lg">
                   <img v-else :alt="member.name"
-                       class="absolute -left-6 w-24 h-24 rounded-full shadow-lg" src="../assets/imgs/fb-profile.jpeg">
+                       alt="Logo du club de Badminton d'Augny" class="absolute -left-6 w-24 h-24 rounded-full shadow-lg"
+                       src="../assets/imgs/fb-profile.jpeg">
                   <div class="flex flex-col py-5 pl-24">
                     <p class="text-slate-900 font-medium"><strong class="gradient-text">{{ member.name }}</strong> <span
                       class="text-xs font-extrabold">{{

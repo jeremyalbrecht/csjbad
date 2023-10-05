@@ -16,13 +16,13 @@
           <div v-if="article.image.data.length > 1 && index % 2 == 1" class="w-full sm:w-1/2 p-6 mt-6">
             <div class="grid grid-cols-2 gap-2">
               <div v-for="image in article.image.data">
-                <img :src="image.attributes.url" alt=""
+                <img :alt="image.attributes.alternativeText" :src="image.attributes.url"
                      class="h-auto max-w-full rounded-lg">
               </div>
             </div>
           </div>
           <div v-if="article.image.data.length == 1 && index % 2 == 1" class="w-full sm:w-1/3 p-1">
-            <img :src="article.image.data[0].attributes.url"
+            <img :alt="article.image.data[0].attributes.alternativeText" :src="article.image.data[0].attributes.url"
                  class="h-auto mx-auto max-w-full"/>
           </div>
           <div :class="{ [`sm:w-2/3`]: article.image.data.length  <= 1, [`sm:w-1/2`]: article.image.data.length  > 1 }"
@@ -34,13 +34,13 @@
             </div>
           </div>
           <div v-if="article.image.data.length == 1 && index % 2 == 0" class="w-full sm:w-1/3 p-1">
-            <img :src="article.image.data[0].attributes.url"
+            <img :alt="article.image.data[0].attributes.alternativeText" :src="article.image.data[0].attributes.url"
                  class="h-auto mx-auto max-w-full"/>
           </div>
           <div v-if="article.image.data.length > 1 && index % 2 == 0" class="w-full sm:w-1/2 p-6 mt-6">
             <div class="grid grid-cols-2 gap-2">
               <div v-for="image in article.image.data">
-                <img :src="image.attributes.url" alt=""
+                <img :alt="article.image.data[0].attributes.alternativeText" :src="image.attributes.url"
                      class="h-auto max-w-full rounded-lg">
               </div>
             </div>

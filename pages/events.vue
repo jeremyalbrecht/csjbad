@@ -62,7 +62,7 @@
             <a v-if="index % 8 == 0" href="https://www.facebook.com/augnybadminton/" target="_blank">
               <div
                 class="flex flex-col items-center bg-white border gradient rounded-lg shadow md:flex-row md:max-w-xl border-gray-700 ">
-                <img alt=""
+                <img alt="Photo de profile Facebook du club de Badminton d'Augny"
                      class="object-cover w-full hidden md:block h-96 md:h-auto md:w-64 rounded-full"
                      src="../assets/imgs/fb-profile.jpeg">
                 <div class="flex flex-col justify-between p-4 leading-normal">

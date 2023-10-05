@@ -8,6 +8,7 @@ query sponsors {
                       data {
                           attributes {
                               url
+                              alternativeText
                           }
                       }
                   }
@@ -51,10 +52,8 @@ query HomePage {
                     image {
                         data {
                             attributes {
-                                name
-                                hash
-                                ext
                                 url
+                                alternativeText
                             }
                         }
                     }
@@ -77,6 +76,7 @@ query Club {
               attributes {
                 url
                 caption
+                alternativeText
               }
             }
           }
