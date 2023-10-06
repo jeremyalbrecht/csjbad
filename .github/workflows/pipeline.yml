@@ -11,7 +11,7 @@ on:
     branches: [ "main" ]
   repository_dispatch:
     types:
-      - webhook
+      - [ strapi_updated ]
 
 jobs:
   build:
@@ -24,6 +24,7 @@ jobs:
           registry: registry.jalbrecht.fr
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+          no_cache: true
           build-args: |
             "BACKEND_URL=${{ vars.BACKEND_URL }}"
             "BACKEND_API_URL=${{ vars.BACKEND_API_URL }}"
