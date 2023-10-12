@@ -8,7 +8,7 @@
           class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800"
           data-aos="fade-up"
         >
-          Nos équipes d'Interclub
+          Nos équipes
         </h2>
         <div class="place-content-center grid grid-cols-1 md:grid-cols-6 gap-6 m-6" data-aos="fade-up-right">
           <template v-for="team in eventsData.teams">

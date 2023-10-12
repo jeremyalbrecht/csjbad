@@ -64,7 +64,7 @@
              :key="article"
              :class="'flex mb-4 flex-wrap items-center justify-items-center ' + ((index % 2 == 1) ? 'flex-col-reverse sm:flex-row' : '')" :data-aos="'fade-up-' + ((index % 2 == 1) ? 'left' : 'right')">
           <div v-if="article.image.data.length > 0 && index % 2 == 1"
-               class="hidden sm:block w-full sm:w-1/3 p-1 sm:pr-10">
+               :class="(article.showImageOnMobile ? '' : 'hidden sm:block') + ' w-full sm:w-1/3 p-1 sm:pr-10'">
             <img :alt="article.image.data[0].attributes.alternativeText" :src="article.image.data[0].attributes.url"
                  class="h-auto mx-auto"/>
           </div>
@@ -75,13 +75,14 @@
             <div class="text-gray-600 mb-8 " v-html="$md(article.content)"></div>
             <div class="flex justify-center">
               <a v-if="article.button_title" :href="article.button_url" class="gradient text-white hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
-                 target="_blank"
+                 :target="article.openInNewTab ? '_blank' : '_self'"
               >
                 {{ article.button_title }}
               </a>
             </div>
           </div>
-          <div v-if="article.image.data.length > 0 && index % 2 == 0" class="w-full hidden sm:block sm:w-1/3 p-1">
+          <div v-if="article.image.data.length > 0 && index % 2 == 0"
+               :class="(article.showImageOnMobile ? '' : 'hidden sm:block') + ' w-full hidden sm:block sm:w-1/3 p-1'">
             <img :alt="article.image.data[0].attributes.alternativeText" :src="article.image.data[0].attributes.url"
                  class="h-auto mx-auto"/>
           </div>

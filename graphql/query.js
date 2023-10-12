@@ -49,6 +49,8 @@ query HomePage {
                     content
                     button_title
                     button_url
+                    openNewTab
+                    showImageOnMobile
                     image {
                         data {
                             attributes {
@@ -82,6 +84,8 @@ query Club {
           }
           button_url
           button_title
+          openNewTab
+          showImageOnMobile
         }
         comiteeMembers {
           name
@@ -145,6 +149,13 @@ query Adulte {
             price
             description
         }
+        steps {
+            description
+            icon
+            button_action
+            button_title
+            button_icon
+        }
       }
     }
   }
@@ -189,24 +200,29 @@ export const eventsQuery = `
 export const doubleJeuQuery = `
   query DoubleJeu {
   doubleJeu {
-    data {
-      attributes {
-        title
-        articles {
-          title
-          content
-          button_title
-          button_url
-          image {
-            data {
-              attributes {
-                alternativeText
-                url
-              }
+        data {
+            attributes {
+                sections {
+                    id
+                    title
+                    articles {
+                        title
+                        content
+                        button_title
+                        button_url
+                        showImageOnMobile
+                        openNewTab
+                        image {
+                            data {
+                                attributes {
+                                    alternativeText
+                                    url
+                                }
+                            }
+                        }
+                    }
+                }
             }
-          }
         }
-      }
     }
-  }
 }`

@@ -56,6 +56,53 @@
               </div>
               <div class="flex flex-col items-center justify-center italic text-gray-600 mb-5 mt-10"
                    v-html="$md(adultesData.tarifs)"></div>
+
+            </div>
+          </div>
+        </div>
+
+        <div
+          v-if="adultesData.steps.length"
+          class="flex flex-wrap flex-col-reverse sm:flex-row" data-aos="fade-up-left">
+          <div class="w-full mt-10">
+            <div class="align-middle">
+              <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3 text-center lg:text-left">
+                Comment s'inscrire au club ?
+              </h3>
+              <div class="relative border-l border-gray-200">
+                <li v-for="step in adultesData.steps" class="mb-5 ml-6">
+                  <span class="absolute flex items-center justify-center w-10 h-10 gradient rounded-full -left-5  text-gray-800"
+                        v-html="step.icon"></span>
+
+                  <p class="mb-4 pt-2 pl-2 text-base font-normal text-gray-500" v-html="$md(step.description)"></p>
+
+                  <a v-if="step.button_action" :href="step.button_action" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg"
+                     target="_blank">
+                    <svg v-if="step.button_icon == 'download'" aria-hidden="true" class="w-3.5 h-3.5 mr-2.5"
+                         fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M14.707 7.793a1 1 0 0 0-1.414 0L11 10.086V1.5a1 1 0 0 0-2 0v8.586L6.707 7.793a1 1 0 1 0-1.414 1.414l4 4a1 1 0 0 0 1.416 0l4-4a1 1 0 0 0-.002-1.414Z"/>
+                      <path
+                        d="M18 12h-2.55l-2.975 2.975a3.5 3.5 0 0 1-4.95 0L4.55 12H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2Zm-3 5a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
+                    </svg>
+                    <svg v-if="step.button_icon == 'link'" class="w-5 h-5 mr-2.5" fill="#000000"
+                         viewBox="-2 -2 24.00 24.00" xmlns="http://www.w3.org/2000/svg">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <path
+                          d="M7.50004 2C6.11933 2 5.00004 3.11929 5.00004 4.5V12.5C5.00004 13.8807 6.11933 15 7.50004 15H15.5C16.8807 15 18 13.8807 18 12.5V4.5C18 3.11929 16.8807 2 15.5 2H7.50004ZM17 4.5V5H10.5C10.2239 5 10 4.77614 10 4.5V3H15.5C16.3285 3 17 3.67157 17 4.5ZM9.00004 4.5C9.00004 5.32843 9.67161 6 10.5 6H17V12.5C17 13.3284 16.3285 14 15.5 14H7.50004C6.67161 14 6.00004 13.3284 6.00004 12.5V4.5C6.00004 3.67157 6.67161 3 7.50004 3H9.00004V4.5Z"
+                          fill="#212121"></path>
+                        <path
+                          d="M12.5002 18C13.7097 18 14.7186 17.1411 14.9502 16H13.9149C13.709 16.5826 13.1534 17 12.5002 17H6.00024C4.34339 17 3.00024 15.6568 3.00024 14V7.49998C3.00024 6.84687 3.41765 6.29125 4.00025 6.08533V5.04999C2.85913 5.28162 2.00024 6.2905 2.00024 7.49998V14C2.00024 16.2091 3.79111 18 6.00024 18H12.5002Z"
+                          fill="#212121"></path>
+                      </g>
+                    </svg>
+                    {{ step.button_title }}
+                  </a>
+                </li>
+              </div>
+
             </div>
           </div>
         </div>

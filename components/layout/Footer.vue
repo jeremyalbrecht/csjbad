@@ -17,7 +17,7 @@
             </li>
             <li class="mt-2 inline-block mr-2 md:block md:mr-0">
               <a
-                href="#"
+                href="#contact"
                 class="no-underline hover:underline text-gray-800 hover:text-blue-700"
               >Contact</a
               >
@@ -28,7 +28,7 @@
           <img v-if="sponsor.attributes.logo.data"
                :alt="sponsor.attributes.logo.data.attributes.alternativeText"
                :src="sponsor.attributes.logo.data.attributes.url"
-               class="m-auto h-auto max-w-full"/>
+               class="mx-auto h-24 "/>
           </div>
       </div>
 
