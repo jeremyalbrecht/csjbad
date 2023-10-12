@@ -70,7 +70,7 @@
                 Comment s'inscrire au club ?
               </h3>
               <div class="relative border-l border-gray-200">
-                <li v-for="step in adultesData.steps" class="mb-5 ml-6">
+                <div v-for="step in adultesData.steps" class="mb-5 ml-6">
                   <span class="absolute flex items-center justify-center w-10 h-10 gradient rounded-full -left-5  text-gray-800"
                         v-html="step.icon"></span>
 
@@ -100,7 +100,7 @@
                     </svg>
                     {{ step.button_title }}
                   </a>
-                </li>
+                </div>
               </div>
 
             </div>
