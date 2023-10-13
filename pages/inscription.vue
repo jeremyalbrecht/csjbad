@@ -54,7 +54,7 @@
                   </tbody>
                 </table>
               </div>
-              <div class="flex flex-col items-center justify-center italic text-gray-600 mb-5 mt-10"
+              <div class="flex flex-col md:items-center justify-center italic text-gray-600 mb-5 mt-10 p-5"
                    v-html="$md(adultesData.tarifs)"></div>
 
             </div>
@@ -69,12 +69,12 @@
               <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3 text-center lg:text-left">
                 Comment s'inscrire au club ?
               </h3>
-              <div class="relative border-l border-gray-200">
+              <div class="relative border-l border-gray-200 mt-10 mb-10 ml-8 mr-8">
                 <div v-for="step in adultesData.steps" class="mb-5 ml-6">
                   <span class="absolute flex items-center justify-center w-10 h-10 gradient rounded-full -left-5  text-gray-800"
                         v-html="step.icon"></span>
 
-                  <p class="mb-4 pt-2 pl-2 text-base font-normal text-gray-500" v-html="$md(step.description)"></p>
+                  <div class="mb-4 pt-2 pl-2 text-base font-normal text-gray-500" v-html="$md(step.description)"></div>
 
                   <a v-if="step.button_action" :href="step.button_action" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg"
                      target="_blank">
