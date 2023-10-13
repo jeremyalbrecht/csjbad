@@ -15,11 +15,33 @@
           <p class="leading-normal text-2xl mb-8 font-extralight">
             {{ homePageData.hero_description }}
           </p>
-
+          <a v-if="homePageData.hero_button" :href="homePageData.hero_action" class="focus:ring-4 focus:ring-blue-800 hover:underline inline-flex items-center gradient-grey text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg transform transition hover:scale-105 duration-300 ease-in-out"
+             target="_blank"
+          >
+            {{ homePageData.hero_button }}
+            <svg class="h-5 w-5" fill="#000000" version="1.1" viewBox="-2.5 0 18 18"
+                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier"><title>tap_click_force_touch [#1383]</title>
+                <desc>Created with Sketch.</desc>
+                <defs></defs>
+                <g id="Page-1" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+                  <g id="Dribbble-Light-Preview" fill="#000000" transform="translate(-343.000000, -760.000000)">
+                    <g id="icons" transform="translate(56.000000, 160.000000)">
+                      <path
+                        id="tap_click_force_touch-[#1383]"
+                        d="M298.479989,610.79211 L293.68268,610.399562 L293.674903,605.424658 C293.674903,605.076493 293.34938,604.438356 292.559457,604.438356 C291.946183,604.438356 291.44401,604.880219 291.44401,605.424658 L291.44401,613.803288 L290.518545,612.627616 C290.126361,612.132493 289.328661,612.070356 288.846486,612.498411 C288.472078,612.831781 288.419861,613.355507 288.722054,613.742137 L291.120709,617.697205 C291.328466,617.964493 291.670655,618 292.036175,618 L297.407872,618 C298.467768,618 299.379902,617.459507 299.587659,616.538301 L299.956512,612.988603 C300.17649,612.013151 299.543219,611.10674 298.479989,610.79211 M288.111003,607.39726 C287.497729,607.39726 287,606.956384 287,606.410959 L287,605.178082 C287,598.273973 298.110026,598.273973 298.110026,605.178082 L298.110026,606.410959 C298.110026,606.956384 297.612296,607.39726 296.999023,607.39726 C296.38575,607.39726 295.888021,606.956384 295.888021,606.410959 L295.888021,605.178082 C295.888021,601.232877 289.222005,601.232877 289.222005,605.178082 L289.222005,606.410959 C289.222005,606.956384 288.724276,607.39726 288.111003,607.39726"></path>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </a>
         </div>
       </div>
     </div>
-    <div class="relative -mt-12 lg:-mt-24">
+    <div class="relative">
       <svg
         viewBox="0 0 1428 174"
         version="1.1"
@@ -74,7 +96,8 @@
             </h3>
             <div class="text-gray-600 mb-8 " v-html="$md(article.content)"></div>
             <div class="flex justify-center">
-              <a v-if="article.button_title" :href="article.button_url" class="gradient text-white hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
+              <a v-if="article.button_title" :href="article.button_url"
+                 class="gradient text-white hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:ring-4 focus:ring-blue-500 transform transition hover:scale-105 duration-300 ease-in-out"
                  :target="article.openInNewTab ? '_blank' : '_self'"
               >
                 {{ article.button_title }}

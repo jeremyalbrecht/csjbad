@@ -37,6 +37,8 @@ query HomePage {
                 hero_small_title
                 hero_big_title
                 hero_description
+                hero_button
+                hero_action
                 events {
                     id
                     date
