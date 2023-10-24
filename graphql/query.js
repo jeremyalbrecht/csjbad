@@ -29,6 +29,29 @@ query contacts {
 }
 }`
 
+export const shopQuery = `
+query Shop {
+  shop {
+    data {
+      attributes {
+        items {
+          title
+          price
+          image {
+            data {
+              attributes {
+                alternativeText
+                url
+              }
+            }
+          }
+        }
+        description
+      }
+    }
+  }
+}`
+
 export const homePageQuery = `
 query HomePage {
     homePage {
