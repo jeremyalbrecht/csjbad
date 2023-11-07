@@ -208,6 +208,15 @@ export const eventsQuery = `
           ranking
           color
           major
+          leaderboard {
+              competition_id
+              rows {
+                  club
+                  won
+                  lost
+                  total
+              }
+          }
           image {
             data {
               attributes {

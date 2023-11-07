@@ -1,0 +1,16 @@
+version: "3.8"
+
+include:
+  - csjbad.yml
+  - csjbad-runner.yml
+
+networks:
+  web:
+    external: true
+    name: traefik_web
+  mariadb:
+    name: mariadb
+    external: true
+  strapi:
+    name: strapi
+    external: true

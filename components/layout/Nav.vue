@@ -8,7 +8,7 @@
           class="text-white no-underline hover:no-underline w-1/2"
           href="/"
         >
-          <img class="" src="../../assets/imgs/logo.png" />
+          <img alt="Logo du club de badminton d'Augny" class="" src="../../assets/imgs/logo.png"/>
         </a>
       </div>
       <div class="block lg:hidden pr-4">

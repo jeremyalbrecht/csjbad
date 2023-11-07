@@ -13,12 +13,73 @@
         <div class="place-content-center grid grid-cols-1 md:grid-cols-6 gap-6 m-6" data-aos="fade-up-right">
           <template v-for="team in eventsData.teams">
             <div v-if="team.major && team.image.data"
-                 :class="'md:col-span-2 min-h-[30vh] relative rounded-3xl shadow-xl hover:scale-105 transition duration-500 '"
-                 :style="{background: `url(${team.image.data.attributes.url})`, backgroundPosition: 'center top', backgroundSize: 'cover'}">
+                 class="md:col-span-2 min-h-[30vh] relative rounded-3xl shadow-xl hover:scale-105 transition duration-500">
+              <div
+                :style="{background: `url(${team.image.data.attributes.url})`, backgroundPosition: 'center top', backgroundSize: 'cover'}"
+                class="rounded-t-3xl h-96 -z-30"></div>
               <h1
                 class="text-4xl uppercase text-white bg-blue-700 bg-opacity-75 rounded-full p-5 absolute -left-4 -top-4 ">
                 {{ team.ranking }}
               </h1>
+              <div v-if="team.leaderboard" class="">
+                <table
+                  class="table-fixed max-w-full w-full overflow-x-auto min-w-full text-xs text-left text-gray-500 gradient">
+                  <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                  <tr>
+                    <th class="px-6 py-3 w-1/12" scope="col">
+                      #
+                    </th>
+                    <th class="px-6 py-3 w-5/12" scope="col">
+                      Club
+                    </th>
+                    <th class="px-6 py-3 w-1/12" scope="col">
+                      W
+                    </th>
+                    <th class="px-6 py-3 w-1/12" scope="col">
+                      L
+                    </th>
+                    <th class="px-6 py-3 w-1/12" scope="col">
+                      T
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr v-for="(row, index) in team.leaderboard.rows"
+                      :class="'border-b' + (row.club.includes('Cercle St Jean') ? ' text-white' : ' bg-gray-50')">
+                    <td class="px-6 py-4">
+                      {{ index + 1 }}
+                    </td>
+                    <th v-if="row.club.includes('Cercle St Jean')" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap flex justify-center"
+                        scope="row">
+                      <img class="h-10" src="../assets/imgs/logo.png" style="filter: brightness(0) invert(1);">
+                    </th>
+                    <th v-else class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap truncate ..." scope="row">
+                      {{ row.club }}
+                    </th>
+                    <td class="px-6 py-4">
+                      {{ row.won }}
+                    </td>
+                    <td class="px-6 py-4">
+                      {{ row.lost }}
+                    </td>
+                    <td class="px-6 py-4">
+                      {{ row.total }}
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div v-if="team.leaderboard" class="p-2">
+                <a :href="team.leaderboard.competition_id"
+                   class="mr-0 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-blue-700 hover:underline focus:ring-4 focus:outline-none focus:ring-blue-300">
+                  Classement complet sur le site officiel des IC
+                  <svg aria-hidden="true" class="w-3.5 h-3.5 ml-2" fill="none" viewBox="0 0 14 10"
+                       xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 5h12m0 0L9 1m4 4L9 9" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                          stroke-width="2"/>
+                  </svg>
+                </a>
+              </div>
             </div>
             <div v-if="team.major && !team.image.data"
                  :class="'md:col-span-2 min-h-[30vh] relative rounded-3xl shadow-xl hover:scale-105 transition duration-500 ' + ((team.color == 'blue') ? 'gradient' : 'gradient-grey')">

@@ -1,0 +1,20 @@
+version: "3.7"
+services:
+  csjbad-front:
+    restart: always
+    image: registry.jalbrecht.fr/csjbad-front:latest
+    container_name: csjbad-front
+    networks:
+      - web
+    labels:
+      traefik.enable: true
+      traefik.docker.network: traefik_web
+      traefik.http.routers.csjbad.entrypoints: websecure
+      traefik.http.routers.csjbad.rule: 'Host(`augny-badminton.fr`, `www.augny-badminton.fr`)'
+      traefik.http.services.csjbad.loadbalancer.server.port: 80
+      traefik.http.routers.csjbad.tls: true
+      traefik.http.routers.csjbad.tls.certresolver: lets-encrypt
+      traefik.http.routers.csjbad.service: csjbad
+      traefik.http.routers.csjbad.middlewares: "redirect-www-to-non-www@file"
+      traefik.http.middlewares.test-compress.compress: true
+
