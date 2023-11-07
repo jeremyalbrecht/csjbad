@@ -1,8 +1,8 @@
 version: "3.8"
 
 include:
-  - docker-compose/csjbad.yml
-  - docker-compose/csjbad-runner.yml
+  - docker-compose/csjbad.yaml
+  - docker-compose/csjbad-runner.yaml
 
 networks:
   web:
