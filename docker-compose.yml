@@ -1,8 +1,8 @@
 version: "3.8"
 
 include:
-  - csjbad.yml
-  - csjbad-runner.yml
+  - docker-compose/csjbad.yml
+  - docker-compose/csjbad-runner.yml
 
 networks:
   web:
@@ -10,7 +10,4 @@ networks:
     name: traefik_web
   mariadb:
     name: mariadb
-    external: true
-  strapi:
-    name: strapi
     external: true
