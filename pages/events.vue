@@ -33,13 +33,13 @@
                       Club
                     </th>
                     <th class="px-6 py-3 w-1/12" scope="col">
-                      W
+                      V
                     </th>
                     <th class="px-6 py-3 w-1/12" scope="col">
-                      L
+                      D
                     </th>
                     <th class="px-6 py-3 w-1/12" scope="col">
-                      T
+                      P
                     </th>
                   </tr>
                   </thead>

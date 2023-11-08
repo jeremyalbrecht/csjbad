@@ -22,7 +22,7 @@ useSeoMeta({
   ogTitle: 'Augny Badminton - Club et école de badminton licencié FFBad',
   description: 'Découvrez le club de badminton d\'Augny près de Metz. Adhérez à notre club affilié à la FFBad et vivez la passion du badminton avec nous !',
   ogDescription: 'Découvrez le club de badminton d\'Augny près de Metz. Adhérez à notre club affilié à la FFBad et vivez la passion du badminton avec nous !',
-  //ogImage: 'https://example.com/image.png',
+  ogImage: 'https://augny-badminton.s3.gra.io.cloud.ovh.net/og_main_b19ca8cc60.png',
   ogLocale: 'fr_FR',
   //twitterCard: 'summary_large_image',
 })
