@@ -10,66 +10,70 @@
         >
           Nos équipes
         </h2>
-        <div class="place-content-center grid grid-cols-1 md:grid-cols-6 gap-6 m-6" data-aos="fade-up-right">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 m-6" data-aos="fade-up-right">
           <template v-for="team in eventsData.teams">
             <div v-if="team.major && team.image.data"
-                 class="md:col-span-2 min-h-[30vh] relative rounded-3xl shadow-xl hover:scale-105 transition duration-500">
-              <div
-                :style="{background: `url(${team.image.data.attributes.url})`, backgroundPosition: 'center top', backgroundSize: 'cover'}"
-                class="rounded-t-3xl h-96 -z-30"></div>
+                 class="md:col-span-4 min-h-[30vh] relative rounded-3xl shadow-2xl hover:scale-105 transition duration-500">
+
+              <div class="md:grid md:grid-cols-2 md:col-span-2 max-w-full">
+                <div
+                  :style="{background: `url(${team.image.data.attributes.url})`, backgroundPosition: 'center top', backgroundSize: 'cover'}"
+                  class="rounded-t-3xl md:rounded-tr-none md:rounded-tl-3xl h-96 -z-30"></div>
+                <div v-if="team.leaderboard">
+                  <table
+                    class="h-96 table-fixed max-w-full w-full overflow-x-auto min-w-full text-xs text-left text-gray-500 gradient md:rounded-tr-3xl">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 md:rounded-tr-3xl">
+                    <tr>
+                      <th class="px-6 py-3 w-1/12" scope="col">
+                        #
+                      </th>
+                      <th class=" py-3 w-5/12" scope="col">
+                        Club
+                      </th>
+                      <th class="px-2 py-3 w-1/12" scope="col">
+                        V
+                      </th>
+                      <th class="px-2 py-3 w-1/12" scope="col">
+                        D
+                      </th>
+                      <th class="px-2 py-3 w-1/12 md:rounded-tr-3xl" scope="col">
+                        P
+                      </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="(row, index) in team.leaderboard.rows"
+                        :class="'border-b' + (row.club.includes('Cercle St Jean') ? ' text-white' : ' bg-gray-50')">
+                      <td class="px-6 py-4">
+                        {{ index + 1 }}
+                      </td>
+                      <th v-if="row.club.includes('Cercle St Jean')"
+                          class="max-h-full py-3 font-medium text-gray-900 whitespace-nowrap flex justify-center content-center"
+                          scope="row">
+                        <img class="h-10" src="../assets/imgs/logo.png" style="filter: brightness(0) invert(1);">
+                      </th>
+                      <th v-else class=" py-4 font-medium text-gray-900 whitespace-nowrap truncate ..." scope="row">
+                        {{ row.club }}
+                      </th>
+                      <td class="px-2 py-4">
+                        {{ row.won }}
+                      </td>
+                      <td class="px-2 py-4">
+                        {{ row.lost }}
+                      </td>
+                      <td class="px-2 py-4">
+                        {{ row.total }}
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
               <h1
                 class="text-4xl uppercase text-white bg-blue-700 bg-opacity-75 rounded-full p-5 absolute -left-4 -top-4 ">
                 {{ team.ranking }}
               </h1>
-              <div v-if="team.leaderboard" class="">
-                <table
-                  class="table-fixed max-w-full w-full overflow-x-auto min-w-full text-xs text-left text-gray-500 gradient">
-                  <thead class="text-xs text-gray-700 uppercase bg-gray-50">
-                  <tr>
-                    <th class="px-6 py-3 w-1/12" scope="col">
-                      #
-                    </th>
-                    <th class="px-6 py-3 w-5/12" scope="col">
-                      Club
-                    </th>
-                    <th class="px-6 py-3 w-1/12" scope="col">
-                      V
-                    </th>
-                    <th class="px-6 py-3 w-1/12" scope="col">
-                      D
-                    </th>
-                    <th class="px-6 py-3 w-1/12" scope="col">
-                      P
-                    </th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr v-for="(row, index) in team.leaderboard.rows"
-                      :class="'border-b' + (row.club.includes('Cercle St Jean') ? ' text-white' : ' bg-gray-50')">
-                    <td class="px-6 py-4">
-                      {{ index + 1 }}
-                    </td>
-                    <th v-if="row.club.includes('Cercle St Jean')" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap flex justify-center"
-                        scope="row">
-                      <img class="h-10" src="../assets/imgs/logo.png" style="filter: brightness(0) invert(1);">
-                    </th>
-                    <th v-else class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap truncate ..." scope="row">
-                      {{ row.club }}
-                    </th>
-                    <td class="px-6 py-4">
-                      {{ row.won }}
-                    </td>
-                    <td class="px-6 py-4">
-                      {{ row.lost }}
-                    </td>
-                    <td class="px-6 py-4">
-                      {{ row.total }}
-                    </td>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div v-if="team.leaderboard" class="p-2">
+              <div v-if="team.leaderboard" class="p-2 text-right">
                 <a :href="team.leaderboard.competition_id"
                    class="mr-0 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-blue-700 hover:underline focus:ring-4 focus:outline-none focus:ring-blue-300">
                   Classement complet sur le site officiel des IC
@@ -89,7 +93,7 @@
               </h1>
             </div>
             <div v-if="!team.major"
-                 :class="'md:col-span-3 flex justify-center items-center min-h-[10vh] rounded-3xl shadow-xl '+ ((team.color == 'blue') ? 'gradient' : 'gradient-gray') + ' hover:scale-105 transition duration-500 '">
+                 :class="'md:col-span-2 flex justify-center items-center min-h-[10vh] rounded-3xl shadow-xl '+ ((team.color == 'blue') ? 'gradient' : 'gradient-gray') + ' hover:scale-105 transition duration-500 '">
               <h1 :class="'text-4xl ' + ((team.color == 'blue') ? 'text-white' : 'text-gray-800') ">
                 {{ team.ranking }}
               </h1>
