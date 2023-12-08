@@ -18,7 +18,7 @@
               <div class="md:grid md:grid-cols-2 md:col-span-2 max-w-full">
                 <div
                   :style="{background: `url(${team.image.data.attributes.url})`, backgroundPosition: 'center top', backgroundSize: 'cover'}"
-                  class="rounded-t-3xl md:rounded-tr-none md:rounded-tl-3xl h-96 -z-30"></div>
+                  class="rounded-t-3xl md:rounded-tr-none md:rounded-tl-3xl h-96 md:max-h-full md:h-auto -z-30"></div>
                 <div v-if="team.leaderboard">
                   <table
                     class="h-96 table-fixed max-w-full w-full overflow-x-auto min-w-full text-xs text-left text-gray-500 gradient md:rounded-tr-3xl">
