@@ -124,7 +124,7 @@ Project Link: [https://github.com/jeremyalbrecht/csjbad](https://github.com/jere
 
 [linkedin-url]: https://linkedin.com/in/linkedin_username
 
-[product-screenshot]: images/preview.png
+[product-screenshot]: docs/preview.png
 
 [Nuxt.js]: https://img.shields.io/badge/Nuxt.js-000000?style=for-the-badge&logo=nuxtdotjs&logoColor=00DC82
 
