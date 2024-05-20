@@ -11,9 +11,12 @@ export default defineNuxtConfig({
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     'dayjs-nuxt',
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    'nuxt-microsoft-clarity'
   ],
-
+  clarity: {
+    id: 'me01cer7f7'
+  },
   dayjs: {
     locales: ['fr'],
     plugins: ['relativeTime', 'utc', 'timezone'],

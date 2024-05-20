@@ -98,7 +98,7 @@
             <div class="flex justify-center">
               <a v-if="article.button_title" :href="article.button_url"
                  class="gradient text-white hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:ring-4 focus:ring-blue-500 transform transition hover:scale-105 duration-300 ease-in-out"
-                 :target="article.openInNewTab ? '_blank' : '_self'"
+                 :target="article.openNewTab ? '_blank' : '_self'"
               >
                 {{ article.button_title }}
               </a>
@@ -112,7 +112,7 @@
         </div>
       </div>
     </section>
-    <section id="events" class="bg-white border-b py-8">
+    <section v-if="homePageData.events.length > 0" id="events" class="bg-white border-b py-8">
       <div class="container mx-auto flex flex-wrap pt-4 pb-12">
         <h2
           data-aos="fade-up"

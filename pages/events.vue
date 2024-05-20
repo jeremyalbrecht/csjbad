@@ -47,12 +47,12 @@
                       <td class="px-6 py-4">
                         {{ index + 1 }}
                       </td>
-                      <th v-if="row.club.includes('Cercle St Jean')"
-                          class="max-h-full py-3 font-medium text-gray-900 whitespace-nowrap flex justify-center content-center"
-                          scope="row">
-                        <img class="h-10" src="../assets/imgs/logo.png" style="filter: brightness(0) invert(1);">
-                      </th>
-                      <th v-else class=" py-4 font-medium text-gray-900 whitespace-nowrap truncate ..." scope="row">
+                      <td v-if="row.club.includes('Cercle St Jean')"
+                          class="py-3 px-3">
+                        <img class="h-10 mx-auto" src="../assets/imgs/logo.png"
+                             style="filter: brightness(0) invert(1);">
+                      </td>
+                      <th v-else class="py-4 font-medium text-gray-900 whitespace-nowrap truncate ...">
                         {{ row.club }}
                       </th>
                       <td class="px-2 py-4">
