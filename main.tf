@@ -23,3 +23,11 @@ resource "azurerm_static_site" "augny-badminton" {
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
 }
+
+resource "google_storage_bucket" "default" {
+  name          = "augny-badminton-bucket-tfstate"
+  force_destroy = false
+  location      = "us-east1"
+  storage_class = "STANDARD"
+
+}
