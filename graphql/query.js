@@ -204,10 +204,15 @@ export const eventsQuery = `
             }
           }
         }
-        teams {
+        teams(pagination: { pageSize: 50 }) {
           ranking
           color
           major
+          season {
+              data {
+                  id
+              }
+          }
           leaderboard {
               competition_id
               rows {
@@ -256,6 +261,19 @@ export const doubleJeuQuery = `
                         }
                     }
                 }
+            }
+        }
+    }
+}`
+
+export const seasonsQuery = `
+query Seasons {
+    seasons {
+        data {
+            id
+            attributes {
+                name
+                default
             }
         }
     }
