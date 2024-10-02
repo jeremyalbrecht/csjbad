@@ -3,6 +3,7 @@ name: Azure deploy
 on:
   repository_dispatch:
     types: [ webhook ]
+  workflow_dispatch:
   push:
     branches:
       - main
