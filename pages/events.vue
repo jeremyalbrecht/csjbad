@@ -57,13 +57,17 @@
 
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6 m-6" data-aos="fade-up-right">
           <template v-for="team in filteredTeams">
-            <div v-if="team.major && team.image.data"
+            <div v-if="team.major && team.leaderboard"
                  class="md:col-span-4 min-h-[30vh] relative rounded-3xl shadow-2xl hover:scale-105 transition duration-500">
 
               <div class="md:grid md:grid-cols-2 md:col-span-2 max-w-full">
-                <div
+                <div v-if="team.image.data"
                   :style="{background: `url(${team.image.data.attributes.url})`, backgroundPosition: 'center top', backgroundSize: 'cover'}"
                   class="rounded-t-3xl md:rounded-tr-none md:rounded-tl-3xl h-96 md:max-h-full md:h-auto -z-30"></div>
+                <div v-else :class="'min-h-full flex ' + ((team.color == 'blue') ? 'gradient' : 'gradient-grey')">
+                  <img alt="Logo d'Augny badminton" class="m-auto h-24 inline-block align-middle"
+                       src="../assets/imgs/logo.png" style="filter: brightness(0) invert(1);">
+                </div>
                 <div v-if="team.leaderboard">
                   <table
                     class="h-96 table-fixed max-w-full w-full overflow-x-auto min-w-full text-xs text-left text-gray-500 gradient md:rounded-tr-3xl">
@@ -130,13 +134,18 @@
                 </a>
               </div>
             </div>
-            <div v-else-if="team.major && !team.image.data"
+            <div v-else-if="team.major"
                  :class="'md:col-span-2 min-h-[30vh] relative rounded-3xl shadow-xl hover:scale-105 transition duration-500 ' + ((team.color == 'blue') ? 'gradient' : 'gradient-grey')">
               <div class="md:col-span-2 max-w-full h-full">
-                <div class="min-h-full flex">
+
+                <div v-if="team.image.data"
+                     :style="{background: `url(${team.image.data.attributes.url})`, backgroundPosition: 'center top', backgroundSize: 'cover'}"
+                     class="rounded-t-3xl md:rounded-tr-none md:rounded-tl-3xl h-96 md:max-h-full md:h-auto -z-30"></div>
+                <div v-else :class="'min-h-full flex ' + ((team.color == 'blue') ? 'gradient' : 'gradient-grey')">
                   <img class="m-auto h-24 inline-block align-middle" src="../assets/imgs/logo.png"
-                       style="filter: brightness(0) invert(1);">
+                       alt="Logo d'Augny badminton" style="filter: brightness(0) invert(1);">
                 </div>
+
                 <div v-if="team.leaderboard">
                   <table
                     class="h-96 table-fixed max-w-full w-full overflow-x-auto min-w-full text-xs text-left text-gray-500 gradient md:rounded-tr-3xl">
