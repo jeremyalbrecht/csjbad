@@ -230,6 +230,14 @@ export const eventsQuery = `
               }
             }
           }
+          images {
+            data {
+              attributes {
+                alternativeText
+                url
+              }
+            }
+          }
       }
       }
     }
