@@ -14,7 +14,11 @@
           <img
             :src="image.attributes.url"
             alt="carousel-image"
-            class="max-h-full min-w-full max-w-full aspect-[4/3] rounded-t-3xl md:rounded-tr-none"
+            :class="{
+              'max-h-full min-w-full max-w-full aspect-[4/3]': true,
+              'rounded-t-3xl md:rounded-tr-none': !roundAll,
+              'rounded-3xl': roundAll
+            }"
           />
         </div>
       </div>
@@ -72,6 +76,11 @@ export default {
     images: {
       type: Array,
       required: true,
+    },
+    roundAll: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
   },
   data() {

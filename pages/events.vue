@@ -139,62 +139,13 @@
                  :class="'md:col-span-2 min-h-[30vh] relative rounded-3xl shadow-xl hover:scale-105 transition duration-500 ' + ((team.color == 'blue') ? 'gradient' : 'gradient-grey')">
               <div class="md:col-span-2 max-w-full h-full">
 
-                <div v-if="team.image.data"
-                     :style="{background: `url(${team.image.data.attributes.url})`, backgroundPosition: 'center top', backgroundSize: 'cover'}"
-                     class="rounded-t-3xl md:rounded-tr-none md:rounded-tl-3xl h-96 md:max-h-full md:h-auto -z-30"></div>
-                <div v-else :class="'min-h-full flex ' + ((team.color == 'blue') ? 'gradient' : 'gradient-grey')">
-                  <img class="m-auto h-24 inline-block align-middle" src="../assets/imgs/logo.png"
-                       alt="Logo d'Augny badminton" style="filter: brightness(0) invert(1);">
+                <Carousel v-if="team.images.data.length > 0" :images="team.images.data" :round-all="true"/>
+                <div v-else
+                     :class="'min-h-full rounded-t-3xl md:rounded-tr-none flex ' + ((team.color == 'blue') ? 'gradient' : 'gradient-grey')">
+                  <img alt="Logo d'Augny badminton" class="m-auto h-24 inline-block align-middle "
+                       src="../assets/imgs/logo.png" style="filter: brightness(0) invert(1);">
                 </div>
-                <div v-if="team.leaderboard">
-                  <table
-                    class="h-96 table-fixed max-w-full w-full overflow-x-auto min-w-full text-xs text-left text-gray-500 gradient md:rounded-tr-3xl">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 md:rounded-tr-3xl">
-                    <tr>
-                      <th class="px-6 py-3 w-1/12" scope="col">
-                        #
-                      </th>
-                      <th class=" py-3 w-5/12" scope="col">
-                        Club
-                      </th>
-                      <th class="px-2 py-3 w-1/12" scope="col">
-                        V
-                      </th>
-                      <th class="px-2 py-3 w-1/12" scope="col">
-                        D
-                      </th>
-                      <th class="px-2 py-3 w-1/12 md:rounded-tr-3xl" scope="col">
-                        P
-                      </th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr v-for="(row, index) in team.leaderboard.rows"
-                        :class="'border-b' + (row.club.includes('Cercle St Jean') ? ' text-white' : ' bg-gray-50')">
-                      <td class="px-6 py-4">
-                        {{ index + 1 }}
-                      </td>
-                      <td v-if="row.club.includes('Cercle St Jean')"
-                          class="py-3 px-3">
-                        <img class="h-10 mx-auto" src="../assets/imgs/logo.png"
-                             style="filter: brightness(0) invert(1);">
-                      </td>
-                      <th v-else class="py-4 font-medium text-gray-900 whitespace-nowrap truncate ...">
-                        {{ row.club }}
-                      </th>
-                      <td class="px-2 py-4">
-                        {{ row.won }}
-                      </td>
-                      <td class="px-2 py-4">
-                        {{ row.lost }}
-                      </td>
-                      <td class="px-2 py-4">
-                        {{ row.total }}
-                      </td>
-                    </tr>
-                    </tbody>
-                  </table>
-                </div>
+
               </div>
               <h1
                 class="text-4xl uppercase text-white bg-blue-700 bg-opacity-75 rounded-full p-5 absolute -left-4 -top-4 ">
