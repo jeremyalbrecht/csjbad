@@ -3,9 +3,12 @@
     <NuxtLayout>
       <NuxtPage/>
     </NuxtLayout>
+    <CookieConsent></CookieConsent>
   </div>
 </template>
 <script lang="ts" setup>
+import CookieConsent from '~/components/CookieConsent.vue';
+
 useHead({
   htmlAttrs: {lang: 'fr'},
   title: 'CSJBAD Augny Badminton - Club et école de badminton à côté de Metz licenciés FFBad',
