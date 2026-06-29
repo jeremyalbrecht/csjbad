@@ -35,6 +35,11 @@ export default defineNuxtConfig({
   nitro: {
     output: {
       publicDir: './dist'
+    },
+    prerender: {
+      crawlLinks: true,
+      failOnError: false,
+      routes: ['/', '/club', '/inscription', '/interclub', '/doublejeu', '/shop']
     }
   }
 })
