@@ -1,6 +1,6 @@
 {
   "navigationFallback": {
-    "rewrite": "/200.html",
+    "rewrite": "/index.html",
     "exclude": [
       "/_nuxt/*",
       "/favicon.ico",
