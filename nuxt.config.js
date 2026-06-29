@@ -37,7 +37,7 @@ export default defineNuxtConfig({
       publicDir: './dist'
     },
     prerender: {
-      crawlLinks: true,
+      crawlLinks: false,
       failOnError: false,
       routes: ['/', '/club/', '/inscription/', '/interclub/', '/doublejeu/', '/shop/']
     }
