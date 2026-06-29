@@ -23,6 +23,7 @@ jobs:
         env:
           BACKEND_URL: ${{ vars.BACKEND_URL }}
           BACKEND_API_URL: ${{ vars.BACKEND_API_URL }}
+          NODE_TLS_REJECT_UNAUTHORIZED: 0
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_LEMON_GRASS_00D73A803 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
