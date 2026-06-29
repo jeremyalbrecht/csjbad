@@ -32,4 +32,9 @@ export default defineNuxtConfig({
   },
   compatibilityDate: '2026-06-26',
 
+  nitro: {
+    output: {
+      publicDir: './dist'
+    }
+  }
 })

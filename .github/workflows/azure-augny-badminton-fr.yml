@@ -29,6 +29,6 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
           app_location: "/"
-          output_location: ".output/public"
+          output_location: "dist"
           skip_api_build: true
           app_build_command: "npm run generate"
