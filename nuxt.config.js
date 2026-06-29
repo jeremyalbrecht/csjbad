@@ -39,7 +39,7 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: true,
       failOnError: false,
-      routes: ['/', '/club', '/inscription', '/interclub', '/doublejeu', '/shop']
+      routes: ['/', '/club/', '/inscription/', '/interclub/', '/doublejeu/', '/shop/']
     }
   }
 })
