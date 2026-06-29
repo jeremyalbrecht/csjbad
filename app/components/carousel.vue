@@ -12,13 +12,13 @@
           class="flex-shrink-0 h-auto min-w-full max-h-full max-w-full"
         >
           <img
-            :src="image.attributes.url"
-            alt="carousel-image"
             :class="{
               'max-h-full min-w-full max-w-full aspect-[4/3]': true,
-              'rounded-t-3xl md:rounded-tr-none': !roundAll,
-              'rounded-3xl': roundAll
+              'rounded-t-3xl md:rounded-tr-none': !roundAll && !flat,
+              'rounded-3xl': roundAll && !flat
             }"
+            :src="image.url"
+            alt="carousel-image"
           />
         </div>
       </div>
@@ -78,6 +78,11 @@ export default {
       required: true,
     },
     roundAll: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    flat: {
       type: Boolean,
       required: false,
       default: false,

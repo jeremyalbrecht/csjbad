@@ -6,11 +6,11 @@
       Microsoft Clarity. Ces données anonymes nous aident à mieux comprendre vos besoins et à optimiser le site web.
     </p>
     <div class="flex flex-col md:flex-row gap-3">
-      <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition transform hover:scale-105"
+      <button class="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800 transition transform hover:scale-105"
               @click="acceptCookies">
         Accepter et continuer
       </button>
-      <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition" @click="declineCookies">
+      <button class="bg-red-700 text-white px-4 py-2 rounded hover:bg-red-800 transition" @click="declineCookies">
         Refuser et fermer
       </button>
     </div>

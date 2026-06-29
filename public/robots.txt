@@ -1,8 +1,3 @@
 User-agent: *
 Allow: /
-
-# Disable OpenAI bots
-User-agent: ChatGPT-User
-Disallow: /
-User-agent: GPTBot
-Disallow: /
+Sitemap: https://www.augny-badminton.fr/sitemap.xml

@@ -30,7 +30,6 @@ export default defineNuxtConfig({
       BACKEND_URL: process.env.BACKEND_URL
     }
   },
-  build: {
-  },
+  compatibilityDate: '2026-06-26',
 
 })

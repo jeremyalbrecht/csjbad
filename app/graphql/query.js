@@ -1,62 +1,39 @@
 export const sponsorQuery = `
 query sponsors {
   sponsors(filters: {active: {eq: true}}) {
-          data {
-              id
-              attributes {
-                  logo {
-                      data {
-                          attributes {
-                              url
-                              alternativeText
-                          }
-                      }
-                  }
-              }
+          logo {
+                      url
+                      alternativeText
           }
-      }
+              }
     }`
 
 export const contactQuery = `
 query contacts {
   contacts(filters: {active: {eq: true}}) {
-  data {
-    attributes {
       title
       action
     }
-  }
-}
 }`
 
 export const shopQuery = `
 query Shop {
   shop {
-    data {
-      attributes {
         items {
           title
           price
           image {
-            data {
-              attributes {
                 alternativeText
                 url
               }
             }
-          }
-        }
         description
       }
-    }
-  }
 }`
 
 export const homePageQuery = `
 query HomePage {
     homePage {
-        data {
-            attributes {
                 hero_small_title
                 hero_big_title
                 hero_description
@@ -77,65 +54,46 @@ query HomePage {
                     openNewTab
                     showImageOnMobile
                     image {
-                        data {
-                            attributes {
                                 url
                                 alternativeText
-                            }
-                        }
                     }
                 }
             }
-        }
-    }
+
 }`
 
 export const clubQuery = `
 query Club {
   club {
-    data {
-      attributes {
         articles {
           title
           content
           image {
-            data {
-              attributes {
                 url
                 caption
                 alternativeText
-              }
-            }
           }
           button_url
           button_title
           openNewTab
           showImageOnMobile
         }
-        comiteeMembers {
+        comiteeMembers(pagination: { pageSize: 50 }) {
           name
           function
           description
           image {
-              data {
-                  attributes {
                       alternativeText
                       url
                       caption
-                  }
-              }
           }
       }
       }
-    }
-  }
 }`
 
 export const adultesQuery = `
 query Adulte {
   adulte {
-    data {
-      attributes {
         button_title
         button_action
         creneaux {
@@ -146,27 +104,19 @@ query Adulte {
         }
         tarifs
         files {
-          data {
-            attributes {
               name
               ext
               size
               url
               caption
-            }
-          }
         }
         trainers {
           name
           function
           description
           image {
-            data {
-              attributes {
                 alternativeText
                 url
-              }
-            }
           }
       }
         license {
@@ -181,37 +131,19 @@ query Adulte {
             button_title
             button_icon
         }
-      }
-    }
   }
 }`
 
 export const eventsQuery = `
   query VieDuClub {
   vieDuClub {
-    data {
-      attributes {
-        events {
-          date
-          title
-          content
-          image {
-            data {
-              attributes {
-                alternativeText
-                url
-              }
-            }
-          }
-        }
         teams(pagination: { pageSize: 50 }) {
           ranking
           color
           major
           season {
-              data {
-                  id
-              }
+              name
+              default
           }
           leaderboard {
               competition_id
@@ -223,32 +155,20 @@ export const eventsQuery = `
               }
           }
           image {
-            data {
-              attributes {
                 alternativeText
                 url
-              }
-            }
           }
           images {
-            data {
-              attributes {
                 alternativeText
                 url
-              }
-            }
           }
       }
       }
-    }
-  }
 }`
 
 export const doubleJeuQuery = `
   query DoubleJeu {
   doubleJeu {
-        data {
-            attributes {
                 sections {
                     id
                     title
@@ -260,29 +180,27 @@ export const doubleJeuQuery = `
                         showImageOnMobile
                         openNewTab
                         image {
-                            data {
-                                attributes {
                                     alternativeText
                                     url
-                                }
-                            }
                         }
                     }
                 }
-            }
-        }
     }
 }`
 
 export const seasonsQuery = `
 query Seasons {
     seasons {
-        data {
-            id
-            attributes {
                 name
                 default
-            }
-        }
+    }
+}`
+
+export const faqQuery = `
+query Faq {
+    faqs(sort: "order:asc", pagination: { pageSize: 50 }) {
+        question
+        answer
+        order
     }
 }`
