@@ -1,15 +1,7 @@
 {
-  "navigationFallback": {
-    "rewrite": "/index.html",
-    "exclude": [
-      "/_nuxt/*",
-      "/favicon.ico",
-      "/robots.txt",
-      "/sitemap.xml",
-      "*.{css,js,png,jpg,jpeg,gif,svg,ico,webp,woff,woff2,ttf,eot}"
-    ]
-  },
-  "mimeTypes": {
-    ".json": "application/json"
+  "responseOverrides": {
+    "404": {
+      "rewrite": "/404.html"
+    }
   }
 }
