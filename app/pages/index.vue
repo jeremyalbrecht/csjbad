@@ -273,7 +273,7 @@ const sportsClubSchema = {
   alternateName: "Augny Badminton",
   url: SITE_URL,
   logo: `${SITE_URL}/_nuxt/logo.f3773237.png`,
-  image: "https://augny-badminton.s3.gra.io.cloud.ovh.net/og_main_b19ca8cc60.png",
+  image: "https://augny-badminton-website.s3.fr-par.scw.cloud/og_main_945543309b.png",
   description: "Club de badminton à Augny, à 5 minutes de Metz (Moselle). Affilié à la Fédération Française de Badminton (FFBad). École de badminton labellisée 2 étoiles, équipes en interclubs, créneaux loisir adultes et jeunes.",
   sport: "Badminton",
   areaServed: [

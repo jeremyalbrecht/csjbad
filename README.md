@@ -5,7 +5,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/jeremyalbrecht/csjbad">
-    <img src="assets/imgs/logo.png" alt="Logo" >
+    <img src="app/assets/imgs/logo.png" alt="Logo" >
   </a>
 
 <h3 align="center">Augny-Badminton</h3>

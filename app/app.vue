@@ -23,7 +23,7 @@ useSeoMeta({
   ogTitle: 'Badminton à Metz – Club CSJBAD Augny | Loisir & compétition (FFBad)',
   description: 'Club de badminton à Augny, à 5 minutes de Metz (Moselle). École de badminton labellisée FFBad, équipes en interclubs, créneaux loisir adultes et jeunes.',
   ogDescription: 'Club de badminton à Augny, à 5 minutes de Metz (Moselle). École de badminton labellisée FFBad, équipes en interclubs, créneaux loisir adultes et jeunes.',
-  ogImage: 'https://augny-badminton.s3.gra.io.cloud.ovh.net/og_main_b19ca8cc60.png',
+  ogImage: 'https://augny-badminton-website.s3.fr-par.scw.cloud/og_main_945543309b.png',
   ogImageAlt: 'Logo et photo du gymnase de l\'Augny Badminton',
   ogType: 'website',
   ogUrl: canonicalHref,

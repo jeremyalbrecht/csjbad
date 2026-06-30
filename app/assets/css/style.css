@@ -3,11 +3,11 @@
 
 * {
   transition: all .3s linear;
-  font-family: 'Raleway', sans-serif
+  font-family: 'Raleway', 'Raleway-fallback', sans-serif
 }
 
 h1, h3 {
-  font-family: Raleway, Serif;
+  font-family: Raleway, 'Raleway-fallback', Serif;
 }
 
 h1 {
@@ -15,7 +15,7 @@ h1 {
 }
 
 p, table {
-  font-family: Roboto;
+  font-family: Roboto, 'Roboto-fallback', sans-serif;
 }
 
 .gradient-hero:before {
