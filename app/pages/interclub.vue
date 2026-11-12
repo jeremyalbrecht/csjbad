@@ -68,7 +68,7 @@
 
                 <div class="md:grid md:grid-cols-2">
                   <!-- Image / carousel side -->
-                  <div class="min-h-[280px] flex">
+                  <div class="md:min-h-[280px] flex items-center bg-[#202043]">
                     <Carousel v-if="team.images.length > 0" :flat="true" :images="team.images"/>
                     <div v-else
                          :class="['flex-1 flex items-center justify-center min-h-[280px]', team.color === 'blue' ? 'gradient' : 'gradient-grey']">
