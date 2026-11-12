@@ -1,43 +1,33 @@
 <template>
-  <div class="gradient-hero"></div>
+  <div aria-hidden="true" class="hero-scrim"></div>
   <div class="leading-normal tracking-normal text-white w-full gradient-hero">
     <LayoutNav/>
     <main>
       <div class="pt-24">
         <div
-          class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center"
+          class="container px-5 mx-auto flex flex-wrap flex-col md:flex-row items-center"
         >
           <div
-            class="flex flex-col w-full pt-40  md:w-2/5 justify-center items-center md:items-start text-center md:text-left"
+            class="flex flex-col w-full pt-10 md:pt-24 md:w-1/2 lg:w-5/12 justify-center items-center md:items-start text-center md:text-left"
           >
-            <p class="uppercase tracking-loose w-full font-semibold" v-html="homePageData.hero_small_title"></p>
-            <h1 class="my-4 text-5xl font-bold leading-tight font-" v-html="homePageData.hero_big_title">
+            <p class="uppercase tracking-wider text-sm md:text-base w-full font-semibold text-white/90"
+               v-html="homePageData.hero_small_title"></p>
+            <h1 class="mt-3 mb-5 text-4xl md:text-5xl font-bold leading-tight text-balance"
+                v-html="homePageData.hero_big_title">
             </h1>
-            <p class="leading-normal text-2xl mb-8 font-extralight">
+            <p class="leading-relaxed text-lg md:text-xl font-normal max-w-[42ch] text-white/95">
               {{ homePageData.hero_description }}
             </p>
             <a v-if="homePageData.hero_button" :href="homePageData.hero_action"
-               class="focus:ring-4 focus:ring-blue-800 hover:underline inline-flex items-center gradient-grey text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg transform transition hover:scale-105 duration-300 ease-in-out"
-               target="_blank"
+               class="focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/60 inline-flex items-center gap-2 bg-white text-[#202043] font-bold rounded-full mt-8 py-4 px-8 shadow-[0_8px_24px_rgba(0,0,0,0.35)] motion-safe:transition motion-safe:hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(0,0,0,0.45)] duration-200 ease-out"
+               rel="noopener" target="_blank"
             >
               {{ homePageData.hero_button }}
-              <svg class="h-5 w-5" fill="#000000" version="1.1" viewBox="-2.5 0 18 18"
-                   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                <g id="SVGRepo_iconCarrier"><title>tap_click_force_touch [#1383]</title>
-                  <desc>Created with Sketch.</desc>
-                  <defs></defs>
-                  <g id="Page-1" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
-                    <g id="Dribbble-Light-Preview" fill="#000000" transform="translate(-343.000000, -760.000000)">
-                      <g id="icons" transform="translate(56.000000, 160.000000)">
-                        <path
-                          id="tap_click_force_touch-[#1383]"
-                          d="M298.479989,610.79211 L293.68268,610.399562 L293.674903,605.424658 C293.674903,605.076493 293.34938,604.438356 292.559457,604.438356 C291.946183,604.438356 291.44401,604.880219 291.44401,605.424658 L291.44401,613.803288 L290.518545,612.627616 C290.126361,612.132493 289.328661,612.070356 288.846486,612.498411 C288.472078,612.831781 288.419861,613.355507 288.722054,613.742137 L291.120709,617.697205 C291.328466,617.964493 291.670655,618 292.036175,618 L297.407872,618 C298.467768,618 299.379902,617.459507 299.587659,616.538301 L299.956512,612.988603 C300.17649,612.013151 299.543219,611.10674 298.479989,610.79211 M288.111003,607.39726 C287.497729,607.39726 287,606.956384 287,606.410959 L287,605.178082 C287,598.273973 298.110026,598.273973 298.110026,605.178082 L298.110026,606.410959 C298.110026,606.956384 297.612296,607.39726 296.999023,607.39726 C296.38575,607.39726 295.888021,606.956384 295.888021,606.410959 L295.888021,605.178082 C295.888021,601.232877 289.222005,601.232877 289.222005,605.178082 L289.222005,606.410959 C289.222005,606.956384 288.724276,607.39726 288.111003,607.39726"></path>
-                      </g>
-                    </g>
-                  </g>
-                </g>
+              <span class="sr-only">(nouvel onglet)</span>
+              <svg aria-hidden="true" class="h-4 w-4" fill="none" stroke="currentColor" stroke-linecap="round"
+                   stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24"
+                   xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 17 17 7M9 7h8v8"/>
               </svg>
             </a>
           </div>

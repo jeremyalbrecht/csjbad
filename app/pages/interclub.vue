@@ -14,7 +14,7 @@
         </div>
 
         <!-- Season selector: full-width sticky strip, outside container -->
-        <div v-if="seasons.data.seasons.length > 0"
+        <div v-if="sortedSeasons.length > 0"
              class="sticky top-16 lg:top-20 z-20 bg-white border-b border-gray-100 shadow-sm mb-6">
 
           <!-- Mobile: native select -->
@@ -24,7 +24,7 @@
               class="w-full rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm font-semibold text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer appearance-none"
               @change="currentSeason = ($event.target as HTMLSelectElement).value"
             >
-              <option v-for="season in seasons.data.seasons" :key="season.name" :value="season.name">
+              <option v-for="season in sortedSeasons" :key="season.name" :value="season.name">
                 Saison {{ season.name }}
               </option>
             </select>
@@ -33,7 +33,7 @@
           <!-- Desktop: pill tabs -->
           <div class="hidden md:flex justify-center gap-2 px-8 py-3">
             <button
-              v-for="season in seasons.data.seasons"
+              v-for="season in sortedSeasons"
               :key="season.name"
               :class="[
                 'px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200',
@@ -219,8 +219,12 @@ const {data: seasons} = await useFetch(config.public.BACKEND_API_URL, {
   headers: {'Content-Type': 'application/json'},
 })
 
+const sortedSeasons = computed(() =>
+  [...(seasons.value?.data?.seasons ?? [])].sort((a: any, b: any) => a.name.localeCompare(b.name))
+)
+
 const currentSeason = ref<string | null>(
-  (seasons.value.data.seasons.find((s: any) => s.default) ?? seasons.value.data.seasons[0])?.name ?? null
+  (seasons.value.data.seasons.find((s: any) => s.default) ?? sortedSeasons.value[0])?.name ?? null
 )
 
 function selectSeason(season: any) {
